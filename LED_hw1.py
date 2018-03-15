@@ -1,22 +1,21 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as gpio
 import time
 
-# blinking function
-def blink(pin):
-    GPIO.output(pin,GPIO.HIGH)
-    time.sleep(1)
-    GPIO.output(pin,GPIO.LOW)
-    time.sleep(1)
-    return
+def setup():
+    gpio.setmode(gpio.BCM)
+    gpio.setup(17, gpio.OUT)
+    gpio.setup(27, gpio.OUT)
+    gpio.setup(22, gpio.OUT)
 
-# to use Raspberry Pi board pin numbers
-GPIO.setmode(GPIO.BOARD)
 
-# set up GPIO output channel, we set GPIO4 (Pin 7) to OUTPUT
-GPIO.setup(7, GPIO.OUT)
 
-# blink GPIO4 (Pin 7) 50 times
-for i in range(0,50):
-    blink(7)
+if __name__ == '__main__':
+    setup()
 
-GPIO.cleanup()
+    gpio.output(17, gpio.HIGH)
+    gpio.output(27, gpio.HIGH)
+    gpio.output(22, gpio.HIGH)
+
+    time.sleep(5)
+
+    gpio.cleanup()
