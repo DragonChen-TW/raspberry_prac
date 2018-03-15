@@ -7,15 +7,19 @@ def setup():
     gpio.setup(27, gpio.OUT)
     gpio.setup(22, gpio.OUT)
 
+def redGreen(now):
+    if now == 0:
+        gpio.output(22, gpio.HIGH)
+    elif now == 15:
+        gpio.output(22, gpio.LOW)
 
 
 if __name__ == '__main__':
     setup()
 
-    gpio.output(17, gpio.HIGH)
-    gpio.output(27, gpio.HIGH)
-    gpio.output(22, gpio.HIGH)
-
-    time.sleep(5)
+    for sec in range(0,30):
+        print(sec)
+        redGreen(sec)
+        time.sleep(1)
 
     gpio.cleanup()
