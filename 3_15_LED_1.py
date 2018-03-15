@@ -6,7 +6,7 @@ def setup(gpio_num, OUT_IN):
 
     if OUT_IN == 'IN':
         gpio.setup(gpio_num, gpio.IN)
-    else OUT_IN == 'OUT':
+    elif OUT_IN == 'OUT':
         gpio.setup(gpio_num, gpio.OUT)
 
 def turnOnLED(gpio_num):
