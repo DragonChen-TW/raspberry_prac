@@ -6,6 +6,9 @@ def setup():
     gpio.setup(17, gpio.OUT)
     gpio.setup(27, gpio.OUT)
     gpio.setup(22, gpio.OUT)
+    gpio.output(17, gpio.LOW)
+    gpio.output(27, gpio.LOW)
+    gpio.output(22, gpio.LOW)
 
 def redGreen(now):
     if now == 0:
