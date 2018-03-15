@@ -21,7 +21,7 @@ def getStatus(gpio_num):
 
 if __name__ == '__main__':
     try:
-        gpio_num = 7
+        gpio_num = 3
         setup(gpio_num, 'IN')
         print('The status of gpio {} is {}'.format(gpio_num,getStatus(gpio_num)))
         setup(gpio_num, 'OUT')
