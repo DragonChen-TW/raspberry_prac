@@ -10,12 +10,22 @@ def setup():
     gpio.output(27, gpio.LOW)
     gpio.output(22, gpio.LOW)
 
+def turnOnLED(gpio_num):
+    gpio.output(gpio_num, gpio.HIGH)
+def turnOffLED(gpio_num):
+    gpio.output(gpio_num, gpio.LOW)
+
 def redGreen(now):
     if now == 0:
-        gpio.output(22, gpio.HIGH)
+        turnOnLED(22)
     elif now == 15:
-        gpio.output(22, gpio.LOW)
-
+        turnOffLED(22)
+        turnOnLED(27)
+    elif now == 23:
+        turnOffLED(27)
+        turnOnLED(17)
+    elif now == 28:
+        turnOffLED(17)
 
 if __name__ == '__main__':
     setup()
