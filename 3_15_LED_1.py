@@ -27,8 +27,10 @@ if __name__ == '__main__':
         setup(gpio_num, 'OUT')
 
         while True:
+            print('Turn it on')
             turnOnLED(gpio_num)
             time.sleep(1)
+            print('Turn it off')
             turnOffLED(gpio_num)
             time.sleep(1)
     except KeyboardInterrupt:
