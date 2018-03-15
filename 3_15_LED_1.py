@@ -23,7 +23,7 @@ if __name__ == '__main__':
     try:
         gpio_num = 5
         setup(gpio_num, 'IN')
-        print(f'The status of gpio {gpio_num} is {getStatus(gpio_num)}')
+        print('The status of gpio {} is {}'.format(gpio_num,getStatus(gpio_num)))
         setup(gpio_num, 'OUT')
 
         while True:
