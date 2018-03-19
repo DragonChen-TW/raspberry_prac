@@ -8,6 +8,7 @@ def setup():
     for ligth in lights:
         gpio.setup(light, gpio.OUT)
 
+
 def turnOnLED(light_num, light_name):
     gpio.output(light_num[light_name], gpio.HIGH)
 def turnOffLED(light_num, light_name):
@@ -45,6 +46,7 @@ def light(light_num, light_sec):
         turnOnLED(light_num, light_sec[0])
         time.sleep(light_sec[1])
         turnOffLED(light_num, light_sec[0])
+
 
 if __name__ == '__main__':
     try:
