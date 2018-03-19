@@ -10,7 +10,6 @@ def setup():
     gpio.setup(22, gpio.OUT)
 
 def turnOnLED(light_num, light_name):
-    global light_num
     gpio.output(light_num[light_name], gpio.HIGH)
 def turnOffLED(light_num, light_name):
     gpio.output(light_num[light_name], gpio.LOW)
