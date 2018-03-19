@@ -9,12 +9,10 @@ def setup():
     gpio.setup(27, gpio.OUT)
     gpio.setup(22, gpio.OUT)
 
-
-light_num = {'red':17, 'yellow':27, 'green':22}
-def turnOnLED(light_name):
+def turnOnLED(light_num, light_name):
     global light_num
     gpio.output(light_num[light_name], gpio.HIGH)
-def turnOffLED(light_name):
+def turnOffLED(light_num, light_name):
     gpio.output(light_num[light_name], gpio.LOW)
 
 
@@ -36,18 +34,18 @@ def light_round(start):
         # if i >= 3:
         #     i = 0
 
-def light(light_sec):
+def light(light_num, light_sec):
     print(light_sec[0], light_sec[1])
     if light_sec[0] == 'yellow':
         for sec in range(light_sec[1]):     # light_sec[1] is the second
-            turnOnLED('yellow')
+            turnOnLED(light_num, 'yellow')
             time.sleep(0.5)
-            turnOffLED('yellow')
+            turnOffLED(light_num, 'yellow')
             time.sleep(0.5)
     else:
-        turnOnLED(light_sec[0])
+        turnOnLED(light_num, light_sec[0])
         time.sleep(light_sec[1])
-        turnOffLED(light_sec[0])
+        turnOffLED(light_num, light_sec[0])
 
 
 if __name__ == '__main__':
@@ -55,8 +53,8 @@ if __name__ == '__main__':
         # setting GPIO
         setup()
 
-        th1 = Thread(target=light_round, args=('green',))
-        th2 = Thread(target=light_round, args=('red',))
+        th1 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'green',))
+        th2 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'red',))
         th1.start();  th2.start()
     finally:
         # run this after shut down program using ctrl+c
