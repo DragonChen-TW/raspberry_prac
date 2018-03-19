@@ -52,7 +52,7 @@ if __name__ == '__main__':
         setup()
 
         th1 = Process(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'green',))
-        th2 = Thread(target=light_round, args=({'red':16, 'yellow':20, 'green':21}, 'red',))
+        th2 = Process(target=light_round, args=({'red':16, 'yellow':20, 'green':21}, 'red',))
         th1.start()
         th2.start()
     finally:
