@@ -1,6 +1,6 @@
 import RPi.GPIO as gpio
 import time
-from threading import Thread
+from multiprocessing import Process
 
 lights = [17, 22, 27, ]
 def setup():
@@ -50,7 +50,7 @@ def light(light_num, light_sec):
 
 if __name__ == '__main__':
     try:
-        th1 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'green',))
+        th1 = Process(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'green',))
         # th2 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'red',))
         th1.start()#;  th2.start()
     finally:
