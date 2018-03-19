@@ -18,7 +18,8 @@ def turnOffLED(light_name):
 
 
 def light_round(start):
-    light_setting = [['red',15], ['green',8], ['yellow',5]]
+    # light_setting = [['red',15], ['green',8], ['yellow',5]]
+    light_setting = [['red',5], ['green',3], ['yellow',3]]
     i = 0
     while True:
         light(light_setting[i])
@@ -27,6 +28,7 @@ def light_round(start):
             i = 0
 
 def light(light_sec):
+    print(light_num[0], light_num[1])
     if light_sec[0] == 'yellow':
         for sec in range(light_sec[1]):     # light_sec[1] is the second
             turnOnLED('yellow')
