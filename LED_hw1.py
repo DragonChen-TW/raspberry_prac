@@ -8,6 +8,7 @@ def setup():
     gpio.setup(17, gpio.OUT)
     gpio.setup(27, gpio.OUT)
     gpio.setup(22, gpio.OUT)
+setup()
 
 def turnOnLED(light_num, light_name):
     gpio.output(light_num[light_name], gpio.HIGH)
@@ -49,9 +50,6 @@ def light(light_num, light_sec):
 
 if __name__ == '__main__':
     try:
-        # setting GPIO
-        setup()
-
         th1 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'green',))
         # th2 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'red',))
         th1.start()#;  th2.start()
