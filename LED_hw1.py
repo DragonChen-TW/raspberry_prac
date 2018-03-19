@@ -5,8 +5,7 @@ from multiprocessing import Process
 def setup():
     lights = [17, 22, 27,  16, 20, 21]
     gpio.setmode(gpio.BCM)
-    for ligth in lights:
-        gpio.setup(light, gpio.OUT)
+    gpio.setup(lights, gpio.OUT)
 
 
 def turnOnLED(light_num, light_name):
