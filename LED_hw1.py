@@ -16,6 +16,7 @@ def turnOffLED(light_num, light_name):
 
 
 def light_round(light_num, start):
+    setup()
     # light_setting = [['red',15], ['green',8], ['yellow',5]]
     light_setting = [['green',3], ['yellow',3], ['red',5]]
 
@@ -46,15 +47,14 @@ def light(light_num, light_sec):
         time.sleep(light_sec[1])
         turnOffLED(light_num, light_sec[0])
 
-
 if __name__ == '__main__':
     try:
         # setting GPIO
         setup()
 
         th1 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'green',))
-        th2 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'red',))
-        th1.start();  th2.start()
+        # th2 = Thread(target=light_round, args=({'red':17, 'yellow':27, 'green':22}, 'red',))
+        th1.start()#;  th2.start()
     finally:
         # run this after shut down program using ctrl+c
         gpio.cleanup()
