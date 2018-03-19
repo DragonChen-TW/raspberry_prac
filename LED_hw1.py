@@ -9,7 +9,7 @@ def setup():
     gpio.setup(22, gpio.OUT)
 
 
-light_num = {'red':17, 'yellow':22, 'green':27}
+light_num = {'red':17, 'yellow':27, 'green':22}
 def turnOnLED(light_name):
     global light_num
     gpio.output(light_num[light_name], gpio.HIGH)
