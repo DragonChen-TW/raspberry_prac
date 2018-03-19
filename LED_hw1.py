@@ -52,10 +52,13 @@ def light(light_sec):
 
 
 if __name__ == '__main__':
-    # setting GPIO
-    setup()
+    try:
+        # setting GPIO
+        setup()
 
-    # light_round('red')
-    light_round('green')
-
-    gpio.cleanup()
+        th1 = Thread(target=light_round, args=('green',))
+        th2 = Thread(target=light_round, args=('red',))
+        th1.start();  th2.start()
+    finally:
+        # run this after shut down program using ctrl+c
+        gpio.cleanup()
