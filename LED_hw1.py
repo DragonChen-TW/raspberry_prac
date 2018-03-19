@@ -28,7 +28,7 @@ def light_round(start):
             i = 0
 
 def light(light_sec):
-    print(light_num[0], light_num[1])
+    print(light_sec[0], light_sec[1])
     if light_sec[0] == 'yellow':
         for sec in range(light_sec[1]):     # light_sec[1] is the second
             turnOnLED('yellow')
