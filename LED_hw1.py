@@ -55,6 +55,8 @@ if __name__ == '__main__':
         th2 = Process(target=light_round, args=({'red':16, 'yellow':20, 'green':21}, 'red',))
         th1.start()
         th2.start()
+        th1.join()
+        th2.join()
     finally:
         # run this after shut down program using ctrl+c
         print('finish')
