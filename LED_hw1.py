@@ -6,9 +6,6 @@ def setup():
     gpio.setup(17, gpio.OUT)
     gpio.setup(27, gpio.OUT)
     gpio.setup(22, gpio.OUT)
-    gpio.output(17, gpio.LOW)
-    gpio.output(27, gpio.LOW)
-    gpio.output(22, gpio.LOW)
 
 def turnOnLED(gpio_num):
     gpio.output(gpio_num, gpio.HIGH)
@@ -33,6 +30,6 @@ if __name__ == '__main__':
     for sec in range(0,30):
         print(sec)
         redGreen(sec)
-        time.sleep(1)
+        time.sleep(0.5)
 
     gpio.cleanup()
