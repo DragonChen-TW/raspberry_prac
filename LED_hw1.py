@@ -57,4 +57,5 @@ if __name__ == '__main__':
         th2.start()
     finally:
         # run this after shut down program using ctrl+c
+        print('finish')
         gpio.cleanup()
