@@ -15,7 +15,7 @@ def turnOffLED(light_num, light_name):
     gpio.output(light_num[light_name], gpio.LOW)
 
 
-def light_round(start):
+def light_round(light_num, start):
     # light_setting = [['red',15], ['green',8], ['yellow',5]]
     light_setting = [['green',3], ['yellow',3], ['red',5]]
 
@@ -28,7 +28,7 @@ def light_round(start):
 
     # infinite light loop
     while True:
-        light(light_setting[i])
+        light(light_num, light_setting[i])
         i += 1
         # if i >= 3:
         #     i = 0
