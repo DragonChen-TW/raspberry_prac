@@ -2,6 +2,7 @@ import RPi.GPIO as gpio
 import time
 from threading import Thread
 
+lights = [17, 22, 27, ]
 def setup():
     gpio.setmode(gpio.BCM)
     gpio.setup(17, gpio.OUT)
@@ -19,13 +20,21 @@ def turnOffLED(light_name):
 
 def light_round(start):
     # light_setting = [['red',15], ['green',8], ['yellow',5]]
-    light_setting = [['red',5], ['green',3], ['yellow',3]]
+    light_setting = [['green',3], ['yellow',3], ['red',5]]
+
+    # setting that i to start light type
     i = 0
+    while i < 3:
+        if light_setting[i][0] == start:
+            break
+        i += 1
+
+    # infinite light loop
     while True:
         light(light_setting[i])
         i += 1
-        if i >= 3:
-            i = 0
+        # if i >= 3:
+        #     i = 0
 
 def light(light_sec):
     print(light_sec[0], light_sec[1])
