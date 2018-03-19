@@ -60,4 +60,6 @@ if __name__ == '__main__':
     finally:
         # run this after shut down program using ctrl+c
         print('finish')
+        for light in [17, 22, 27,  16, 20, 21]:
+            gpio.output(light,gpio.LOW)
         gpio.cleanup()
