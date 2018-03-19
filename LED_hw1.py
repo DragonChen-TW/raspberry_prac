@@ -2,8 +2,8 @@ import RPi.GPIO as gpio
 import time
 from multiprocessing import Process
 
-lights = [17, 22, 27,  16, 20, 21]
 def setup():
+    lights = [17, 22, 27,  16, 20, 21]
     gpio.setmode(gpio.BCM)
     for ligth in lights:
         gpio.setup(light, gpio.OUT)
