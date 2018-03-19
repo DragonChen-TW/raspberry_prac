@@ -43,7 +43,7 @@ def light(light_sec):
 
 if __name__ == '__main__':
     # setting GPIO
-    # setup()
+    setup()
 
     light_round('red')
 
