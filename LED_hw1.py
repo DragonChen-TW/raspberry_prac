@@ -4,7 +4,7 @@ from threading import Thread
 
 lights = [17, 22, 27, ]
 def setup():
-    gpio.setwarrings(False)
+    gpio.setwarnings(False)
     gpio.setmode(gpio.BCM)
     gpio.setup(17, gpio.OUT)
     gpio.setup(27, gpio.OUT)
@@ -55,6 +55,7 @@ if __name__ == '__main__':
     # setting GPIO
     setup()
 
-    light_round('red')
+    # light_round('red')
+    light_round('green')
 
     gpio.cleanup()
