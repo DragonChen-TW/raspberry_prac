@@ -3,6 +3,7 @@ import time
 from threading import Thread
 
 def setup():
+    gpio.cleanup()
     gpio.setmode(gpio.BCM)
     gpio.setup(17, gpio.OUT)
     gpio.setup(27, gpio.OUT)
