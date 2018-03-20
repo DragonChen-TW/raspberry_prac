@@ -14,7 +14,7 @@ def setup(gpio_num, freq):
 
 if __name__ == '__main__':
     try:
-        gpio_num = input('Please input the BCM number of LED.')
+        gpio_num = int(input('Please input the BCM number of LED.'))
         setup(gpio_num, 100)
         while True:
             for i in range(0, 101, 5):
