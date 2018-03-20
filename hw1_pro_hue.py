@@ -1,4 +1,4 @@
-# import RPi.GPIO as gpio
+import RPi.GPIO as gpio
 from pydub import AudioSegment
 import numpy as np
 
@@ -15,7 +15,7 @@ def changeLED(signal):
     p.ChangeDutyCycle(signal)
 
 if __name__ == '__main__':
-    # setup()
+    setup()
 
     song = AudioSegment.from_mp3('mp3/lonely.mp3')
     song = song.set_frame_rate(192)
