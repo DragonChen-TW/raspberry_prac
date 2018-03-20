@@ -9,12 +9,12 @@ try:
     p.start(100)
 
     while True:
-        for i in range(0, 101, 1):
+        for i in range(0, 101, 3):
             p.ChangeDutyCycle(i)
-            time.sleep(0.01)
+            time.sleep(0.05)
         time.sleep(1)
-        for i in range(100, -1, -1):
+        for i in range(100, -1, -3):
             p.ChangeDutyCycle(i)
-            time.sleep(0.01)
+            time.sleep(0.05)
 finally:
     gpio.cleanup()
