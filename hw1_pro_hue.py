@@ -26,9 +26,9 @@ if __name__ == '__main__':
 
         max_signal = 20000
 
-        for i in range(0,20000,100):
+        for i in range(0,40000,200):
             print(i, song[i] * 100 / max_signal)
             changeLED(song[i] * 100 / max_signal)
-            time.sleep(0.1)
+            time.sleep(0.2)
     finally:
         gpio.cleanup()
