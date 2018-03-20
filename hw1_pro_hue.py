@@ -24,6 +24,6 @@ if __name__ == '__main__':
     song = np.abs(song)
 
     for i in range(0,20000,100):
-        print(i, i / 30000 * 100)
-        changeLED(i / 30000 * 100)
+        print(i, song[i] / 30000 * 100)
+        changeLED(song[i] / 30000 * 100)
         time.sleep(0.1)
