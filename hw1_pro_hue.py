@@ -29,8 +29,7 @@ if __name__ == '__main__':
         max_signal = 20000
         sec = 1000
 
-        print('40000', max(song[:40 * sec]))
-        print('all', max(song))
+        s = input('start playing song')
 
         for i in range(0,40 * sec,100):
             print(i, song[i] * 100 / max_signal)
