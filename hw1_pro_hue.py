@@ -18,10 +18,11 @@ def changeLED(signal):
 
 if __name__ == '__main__':
     try:
+        # setup
         setup()
 
+        # get data from mp3
         song = AudioSegment.from_mp3('mp3/lonely.mp3')
-        song = song.set_frame_rate(10)
         song = song.get_array_of_samples()
         song = np.abs(song)
 
