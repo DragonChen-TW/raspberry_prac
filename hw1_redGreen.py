@@ -16,8 +16,8 @@ def turnOffLED(light_num, light_name):
 
 
 def light_round(light_num, start):
-    # light_setting = [['red',15], ['green',8], ['yellow',5]]
-    light_setting = [['green',3], ['yellow',3], ['red',5]]
+    light_setting = [['red',15], ['green',8], ['yellow',5]]
+    # light_setting = [['green',3], ['yellow',3], ['red',5]]
 
     # setting that i to start light type
     i = 0

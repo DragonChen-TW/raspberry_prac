@@ -12,6 +12,7 @@ def setup():
     p.start(100)
 
 def changeLED(signal):
+    # signal should be 0~100 !
     global p
     p.ChangeDutyCycle(signal)
 
@@ -20,13 +21,17 @@ if __name__ == '__main__':
         setup()
 
         song = AudioSegment.from_mp3('mp3/lonely.mp3')
-        song = song.set_frame_rate(192)
+        song = song.set_frame_rate(10)
         song = song.get_array_of_samples()
         song = np.abs(song)
 
         max_signal = 20000
+        sec = 1000
 
-        for i in range(0,40000,200):
+        print('40000', max(song[:40 * sec]))
+        print('all', max(song))
+
+        for i in range(0,40 * sec,100):
             print(i, song[i] * 100 / max_signal)
             changeLED(song[i] * 100 / max_signal)
             time.sleep(0.2)
