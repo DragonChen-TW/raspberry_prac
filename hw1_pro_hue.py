@@ -37,7 +37,7 @@ if __name__ == '__main__':
         for i in range(len(rms)):
             signal = rms[i] / 6600 * 100
             print('{} seconds. rms = {} signal = {}'.format(i * CHUNK / SEC,rms[i], signal))
-            th = Thread(target==changeLED, args=(signal,))
+            th = Thread(target=changeLED, args=(signal,))
             th.start()
             time.sleep(CHUNK / SEC)
     finally:
