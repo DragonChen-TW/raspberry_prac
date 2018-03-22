@@ -2,7 +2,7 @@ import RPi.GPIO as gpio
 import time
 def setup(gpio_num):
     gpio.setmode(gpio.BCM)
-    gpio.setup(gpio_num, gpio.OUT, pull_up_down=gpio.PUD_DOWN)
+    gpio.setup(gpio_num, gpio.IN, pull_up_down=gpio.PUD_DOWN)
 
 count = 0
 def motion(gpio_num):
