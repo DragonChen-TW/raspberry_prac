@@ -34,7 +34,8 @@ if __name__ == '__main__':
             rms_list.append(song[i - CHUNK:i + CHUNK].rms)
 
         for rms in rms_list:
-            changeLED(rms / 6000)
+            signal = rms / 6000 * 100
+            changeLED(signal)
             time.sleep(CHUNK / SEC)
     finally:
         gpio.cleanup()
