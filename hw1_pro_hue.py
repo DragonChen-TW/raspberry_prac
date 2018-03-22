@@ -1,4 +1,4 @@
-import RPi.GPIO as gpio
+# import RPi.GPIO as gpio
 from pydub import AudioSegment
 import numpy as np
 import time
@@ -19,7 +19,7 @@ def changeLED(signal):
 if __name__ == '__main__':
     try:
         # setup
-        setup()
+        # setup()
 
         # get data from mp3
         song = AudioSegment.from_mp3('mp3/lonely.mp3')
@@ -27,7 +27,7 @@ if __name__ == '__main__':
         song = np.abs(song)
 
         song_clean = []
-        CHUNK = 100
+        CHUNK = 500
 
         for i in range(CHUNK * 2,7000000, CHUNK):
             data = song[i - CHUNK:i + CHUNK]
@@ -40,9 +40,9 @@ if __name__ == '__main__':
 
         print(len(song_clean))
 
-        # import matplotlib.pyplot as plt
-        # plt.plot(song_clean)
-        # plt.show()
+        import matplotlib.pyplot as plt
+        plt.plot(song_clean)
+        plt.show()
 
         global p
 
