@@ -33,8 +33,9 @@ if __name__ == '__main__':
         for i in range(CHUNK,len(song[:30000]) + CHUNK, CHUNK):
             rms_list.append(song[i - CHUNK:i + CHUNK].rms)
 
-        for rms in rms_list:
-            signal = rms / 6000 * 100
+        for i in range(len(rms_list)):
+            signal = rms[i] / 6000 * 100
+            print(f'{i * CHUNK / SEC} seconds. rms = {rms_list[i]} signal = {signal}')
             changeLED(signal)
             time.sleep(CHUNK / SEC)
     finally:
