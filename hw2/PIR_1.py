@@ -12,8 +12,8 @@ def motion(gpio_num):
     if gpio.input(gpio_num):
         count += 1
         print('Motion detected {} times.'.format(count))
-    else:
-        print('Motion not detected.')
+    # else:
+    #     print('Motion not detected.')
 
 
 if __name__ == '__main__':
