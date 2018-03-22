@@ -38,5 +38,6 @@ if __name__ == '__main__':
             LED_blink(21, 1)
             if status == True:
                 LED_blink(20,2)
+                status = False
     finally:
         gpio.cleanup()
