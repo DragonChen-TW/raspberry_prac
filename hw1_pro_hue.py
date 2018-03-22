@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
         # variable setting
         SEC = 1000
-        CHUNK = 200
+        CHUNK = 100
         rms = []
 
         # get data from mp3
