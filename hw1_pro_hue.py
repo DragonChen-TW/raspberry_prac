@@ -24,18 +24,18 @@ if __name__ == '__main__':
         # variable setting
         SEC = 1000
         CHUNK = 200
-        rms_list = []
+        rms = []
 
         # get data from mp3
         song = AudioSegment.from_mp3('mp3/lonely.mp3')
         song = song[0:70 * SEC]
 
         for i in range(CHUNK,len(song[:30000]) + CHUNK, CHUNK):
-            rms_list.append(song[i - CHUNK:i + CHUNK].rms)
+            rms.append(song[i - CHUNK:i + CHUNK].rms)
 
-        for i in range(len(rms_list)):
+        for i in range(len(rms)):
             signal = rms[i] / 6000 * 100
-            print('{} seconds. rms = {} signal = {}'.format(i * CHUNK / SEC,rms_list[i], signal))
+            print('{} seconds. rms = {} signal = {}'.format(i * CHUNK / SEC,rms[i], signal))
             changeLED(signal)
             time.sleep(CHUNK / SEC)
     finally:
