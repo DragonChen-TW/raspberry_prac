@@ -1,5 +1,6 @@
 import RPi.GPIO as gpio
 from pydub import AudioSegment
+from threading import Thread
 import numpy as np
 import time
 
@@ -34,9 +35,10 @@ if __name__ == '__main__':
             rms.append(song[i - CHUNK:i + CHUNK].rms)
 
         for i in range(len(rms)):
-            signal = rms[i] / 6000 * 100
+            signal = rms[i] / 6600 * 100
             print('{} seconds. rms = {} signal = {}'.format(i * CHUNK / SEC,rms[i], signal))
-            changeLED(signal)
+            th = Thread(target==changeLED, args=(signal,))
+            th.start()
             time.sleep(CHUNK / SEC)
     finally:
         gpio.cleanup()
