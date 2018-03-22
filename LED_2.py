@@ -21,9 +21,9 @@ if __name__ == '__main__':
         while True:
             for i in range(0, 101, step):
                 g_gpio_num.ChangeDutyCycle(i)
-                time.sleep(0.1)
+                time.sleep(0.03)
             for i in range(100, -1, -step):
                 g_gpio_num.ChangeDutyCycle(i)
-                time.sleep(0.1)
+                time.sleep(0.03)
     except KeyboardInterrupt:
         gpio.cleanup()
