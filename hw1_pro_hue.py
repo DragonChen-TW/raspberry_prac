@@ -40,9 +40,9 @@ if __name__ == '__main__':
 
         print(len(song_clean))
 
-        import matplotlib.pyplot as plt
-        plt.plot(song_clean)
-        plt.show()
+        # import matplotlib.pyplot as plt
+        # plt.plot(song_clean)
+        # plt.show()
 
         for i in range(len(song_clean)):
             print(i, song_clean[i] / 120)
