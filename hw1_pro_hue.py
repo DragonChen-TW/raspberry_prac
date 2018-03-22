@@ -27,7 +27,7 @@ if __name__ == '__main__':
         song = np.abs(song)
 
         song_clean = []
-        CHUNK = 500
+        CHUNK = 1000
 
         for i in range(CHUNK * 2,7000000, CHUNK):
             data = song[i - CHUNK:i + CHUNK]
@@ -49,7 +49,7 @@ if __name__ == '__main__':
         for i in range(len(song_clean)):
             print(i, song_clean[i] / 120)
             changeLED(int(song_clean[i] / 120))
-            time.sleep(1 / (1000 / CHUNK))
+            time.sleep(1 / 90)
     finally:
         gpio.cleanup()
         pass

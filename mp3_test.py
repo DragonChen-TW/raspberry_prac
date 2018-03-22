@@ -1,5 +1,5 @@
 from pydub import AudioSegment
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 import time
 
@@ -8,8 +8,9 @@ song = AudioSegment.from_mp3('mp3/lonely.mp3')
 song = song.get_array_of_samples()
 song = np.abs(song)
 
+
 song_clean = []
-CHUNK = 50
+CHUNK = 1000
 
 for i in range(CHUNK,len(song), CHUNK):
     data = song[i - CHUNK:i + CHUNK]
@@ -22,8 +23,10 @@ for i in range(CHUNK,len(song), CHUNK):
     # print("%04d %05d %s"%(i,peak,bars))
     # time.sleep(0.1)
 
-for each in song_clean:
-    
+print(len(song))
+print(len(song_clean))
 
-# plt.plot(song_clean)
-# plt.show()
+plt.plot(song)
+plt.show()
+plt.plot(song_clean)
+plt.show()
