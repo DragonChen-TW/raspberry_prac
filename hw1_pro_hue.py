@@ -40,10 +40,6 @@ if __name__ == '__main__':
         # setup
         setup()
 
-        global lights
-        for light in lights:
-            print(type(light))
-
         # variable setting
         SEC = 1000
         CHUNK = 100
