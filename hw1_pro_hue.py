@@ -8,12 +8,13 @@ lights = [17, 27, 22,  16, 20, 21]
 def setup():
     global lights
     gpio.setmode(gpio.BCM)
-    p = []
+    new_lights = []
     for light in lights:
         gpio.setup(light, gpio.OUT)
-        p.append(gpio.PWM(light, 100))  # why can I just setting freq=1
+        p = gpio.PWM(light, 100)  # why can I just setting freq=1
         p.start(0)
-    lights = p
+        new_lights.append(p)
+    lights = new_lights
 
 def changeLED(signal):
     # signal should be 0~100 !
