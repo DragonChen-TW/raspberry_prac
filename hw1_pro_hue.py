@@ -4,23 +4,44 @@ from threading import Thread
 import numpy as np
 import time
 
-global p
+global lights = [17, 27, 22,  16, 20, 21]
 def setup():
-    global p
+    global lights
     gpio.setmode(gpio.BCM)
-    gpio.setup(17, gpio.OUT)
-    p = gpio.PWM(17, 100)  # why can I just setting freq=1
-    p.start(0)
+    p = []
+    for light in lights:
+        gpio.setup(light, gpio.OUT)
+        p.append(gpio.PWM(light, 100))  # why can I just setting freq=1
+        p.start(0)
+    lights = p
 
 def changeLED(signal):
     # signal should be 0~100 !
-    global p
-    p.ChangeDutyCycle(signal)
+    global lights
+    signals = countSignal(signal)
+    for i in range(len(lights)):
+        lights[i].ChangeDutyCycle(signals[i])
+
+def countSignal(signal):
+    signals = [signal / 33 * 100,
+        (signal - 33) / 33 * 100,
+        (signal - 66) / 33 * 100 ]
+    for i in range(len(signals)):
+        if signals[i] > 100.0:
+            signals[i] = 100.0
+        elif signals[i] < 0:
+            signals[i] = 0
+    signals = signals * 2
+    return signals
 
 if __name__ == '__main__':
     try:
         # setup
         setup()
+
+        global lights
+        for light in lights:
+            print(type(light))
 
         # variable setting
         SEC = 1000
