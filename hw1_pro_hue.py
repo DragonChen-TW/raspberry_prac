@@ -31,7 +31,7 @@ if __name__ == '__main__':
         song = AudioSegment.from_mp3('mp3/lonely.mp3')
         song = song[0:70 * SEC]
 
-        for i in range(CHUNK,len(song) + CHUNK*0.3, CHUNK):
+        for i in range(CHUNK,int(len(song) + CHUNK*0.3), CHUNK):
             rms.append(song[i - CHUNK:i + CHUNK*0.3].rms)
 
         for i in range(len(rms)):
