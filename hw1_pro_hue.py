@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
         for i in range(len(rms_list)):
             signal = rms[i] / 6000 * 100
-            print(f'{i * CHUNK / SEC} seconds. rms = {rms_list[i]} signal = {signal}')
+            print('{} seconds. rms = {} signal = {}'.format(i * CHUNK / SEC,rms_list[i], signal))
             changeLED(signal)
             time.sleep(CHUNK / SEC)
     finally:
