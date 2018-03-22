@@ -4,7 +4,7 @@ from threading import Thread
 import numpy as np
 import time
 
-global lights = [17, 27, 22,  16, 20, 21]
+lights = [17, 27, 22,  16, 20, 21]
 def setup():
     global lights
     gpio.setmode(gpio.BCM)
