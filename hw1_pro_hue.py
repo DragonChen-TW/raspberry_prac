@@ -29,7 +29,7 @@ if __name__ == '__main__':
         song_clean = []
         CHUNK = 100
 
-        for i in range(CHUNK,7000000, CHUNK):
+        for i in range(CHUNK * 2,7000000, CHUNK):
             data = song[i - CHUNK:i + CHUNK]
             peak = np.average(data)
 
@@ -40,14 +40,14 @@ if __name__ == '__main__':
 
         print(len(song_clean))
 
-        # import matplotlib.pyplot as plt
-        # plt.plot(song_clean)
-        # plt.show()
+        import matplotlib.pyplot as plt
+        plt.plot(song_clean)
+        plt.show()
 
         for i in range(len(song_clean)):
-            print(i, song_clean[i] / 12000 * 100)
-            changeLED(int(song[i] / 12000 * 100))
-            time.sleep(1 / CHUNK)
+            print(i, song_clean[i] / 120)
+            changeLED(int(song[i] / 120))
+            time.sleep(CHUNK / 1000)
     finally:
         gpio.cleanup()
         pass
