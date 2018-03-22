@@ -18,8 +18,8 @@ def motion(gpio_num):
 
 if __name__ == '__main__':
     try:
-        setup(14)
-        gpio.add_event_detect(14, gpio.BOTH, callback=motion, bouncetime=200)
+        setup(15)
+        gpio.add_event_detect(15, gpio.BOTH, callback=motion, bouncetime=200)
         while True:
             time.sleep(1)
     finally:
