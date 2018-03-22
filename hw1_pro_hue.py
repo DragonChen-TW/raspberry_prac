@@ -44,10 +44,12 @@ if __name__ == '__main__':
         # plt.plot(song_clean)
         # plt.show()
 
+        global p
+
         for i in range(len(song_clean)):
             print(i, song_clean[i] / 120)
-            changeLED(int(song[i] / 120))
-            time.sleep(CHUNK / 1000)
+            changeLED(int(song_clean[i] / 120))
+            time.sleep(1 / CHUNK)
     finally:
         gpio.cleanup()
         pass
