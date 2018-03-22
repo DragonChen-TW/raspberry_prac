@@ -35,7 +35,7 @@ if __name__ == '__main__':
             rms.append(song[i - CHUNK:i + CHUNK*0.3].rms)
 
         for i in range(len(rms)):
-            signal = rms[i] / 6600 * 100
+            signal = rms[i] / 7000 * 100
             print('{} seconds. rms = {} signal = {}'.format(i * CHUNK / SEC,rms[i], signal))
             th = Thread(target=changeLED, args=(signal,))
             th.start()
