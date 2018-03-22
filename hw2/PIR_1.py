@@ -1,5 +1,6 @@
 import RPi.GPIO as gpio
 import time
+
 def setup(gpio_num):
     gpio.setmode(gpio.BCM)
     gpio.setup(gpio_num, gpio.IN, pull_up_down=gpio.PUD_DOWN)
