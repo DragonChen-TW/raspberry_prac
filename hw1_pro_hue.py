@@ -47,6 +47,7 @@ if __name__ == '__main__':
         # variable setting
         SEC = 1000
         CHUNK = 100
+        max_signal = 6500
         rms = []
 
         # get data from mp3
@@ -57,7 +58,7 @@ if __name__ == '__main__':
             rms.append(song[i - CHUNK:i + CHUNK*0.3].rms)
 
         for i in range(len(rms)):
-            signal = rms[i] / 7000 * 100
+            signal = rms[i] / max_signal * 100
             print('{} seconds. rms = {} signal = {}'.format(i * CHUNK / SEC,rms[i], signal))
             th = Thread(target=changeLED, args=(signal,))
             th.start()
