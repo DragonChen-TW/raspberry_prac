@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
         for i in range(len(song_clean)):
             print(i, song_clean[i] / 12000 * 100)
-            changeLED(song[i] / 12000 * 100)
+            changeLED(int(song[i] / 12000 * 100))
             time.sleep(0.02)
     finally:
         gpio.cleanup()
