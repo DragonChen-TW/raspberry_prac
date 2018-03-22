@@ -15,6 +15,7 @@ def motion(gpio_num):
     if gpio.input(gpio_num):
         count += 1
         print('Motion detected {} times.'.format(count))
+        LED_blink(16, 3)
     # else:
     #     print('Motion not detected.')
 
