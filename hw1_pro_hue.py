@@ -1,4 +1,4 @@
-# import RPi.GPIO as gpio
+import RPi.GPIO as gpio
 from pydub import AudioSegment
 import numpy as np
 import time
@@ -19,7 +19,7 @@ def changeLED(signal):
 if __name__ == '__main__':
     try:
         # setup
-        # setup()
+        setup()
 
         # get data from mp3
         song = AudioSegment.from_mp3('mp3/lonely.mp3')
@@ -49,7 +49,7 @@ if __name__ == '__main__':
         for i in range(len(song_clean)):
             print(i, song_clean[i] / 120)
             changeLED(int(song_clean[i] / 120))
-            time.sleep(1 / CHUNK)
+            time.sleep(1 / (1000 / CHUNK))
     finally:
         gpio.cleanup()
         pass
