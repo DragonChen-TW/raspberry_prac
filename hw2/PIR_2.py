@@ -15,7 +15,7 @@ def motion(gpio_num):
     if gpio.input(gpio_num):
         count += 1
         print('Motion detected {} times.'.format(count))
-        LED_blink(16, 3)
+        LED_blink(12, 3)
     # else:
     #     print('Motion not detected.')
 
@@ -29,7 +29,7 @@ def LED_blink(gpio_num, times):
 if __name__ == '__main__':
     try:
         setup(15, 'IN')
-        setup(16, 'OUT')
+        setup(12, 'OUT')
         gpio.add_event_detect(15, gpio.RISING, callback=motion, bouncetime=300)
         while True:
             time.sleep(1)
