@@ -26,14 +26,23 @@ if __name__ == '__main__':
         song = song.get_array_of_samples()
         song = np.abs(song)
 
-        max_signal = 20000
-        sec = 1000
+        song_clean = []
+        CHUNK = 50
 
-        s = input('start playing song')
+        for i in range(CHUNK,len(song), CHUNK):
+            data = song[i - CHUNK:i + CHUNK]
+            peak = np.average(data)
 
-        for i in range(0,40 * sec,100):
-            print(i, song[i] * 100 / max_signal)
-            changeLED(song[i] * 100 / max_signal)
-            time.sleep(0.1)
+            if peak > 12000:
+                song_clean.append(12000)
+            else:
+                song_clean.append(peak)
+
+        print(len(song_clean))
+
+        for i in range(len(song_clean)):
+            print(i, song_clean[i] / 12000 * 100)
+            changeLED(song[i] / 12000 * 100)
+            time.sleep(0.02)
     finally:
         gpio.cleanup()
