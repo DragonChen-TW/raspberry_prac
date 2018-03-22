@@ -16,11 +16,13 @@ if __name__ == '__main__':
     try:
         gpio_num = int(input('Please input the BCM number of LED.'))
         setup(gpio_num, 100)
+
+        step = 1
         while True:
-            for i in range(0, 101, 5):
+            for i in range(0, 101, step):
                 g_gpio_num.ChangeDutyCycle(i)
                 time.sleep(0.1)
-            for i in range(100, -1, -5):
+            for i in range(100, -1, -step):
                 g_gpio_num.ChangeDutyCycle(i)
                 time.sleep(0.1)
     except KeyboardInterrupt:
