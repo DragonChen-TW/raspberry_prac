@@ -9,7 +9,7 @@ def setup():
     gpio.setmode(gpio.BCM)
     gpio.setup(17, gpio.OUT)
     p = gpio.PWM(17, 100)  # why can I just setting freq=1
-    p.start(100)
+    p.start(0)
 
 def changeLED(signal):
     # signal should be 0~100 !
