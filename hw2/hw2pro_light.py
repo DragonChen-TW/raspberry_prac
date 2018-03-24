@@ -6,8 +6,9 @@ stats = 1
 # 2 ==> play
 # 3 ==> pause
 
-def setup(lights):
+def setup(lights, gpio_PIR):
     gpio.setmode(gpio.BCM)
+    gpio.setup(gpio_PIR, gpio.IN)
     for i in lights:
         gpio.setup(lights[i], gpio.OUT)
     # for stop
