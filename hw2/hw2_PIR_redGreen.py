@@ -9,11 +9,9 @@ def setup(gpio_num, OUT_IN):
 
 status = False
 def motion(gpio_num):
-    if gpio.input(gpio_num):
-        global status
+    global status
+    if gpio.input(gpio_num) and status == False:
         status = True
-    # else:
-    #     print('Motion not detected.')
 
 def LED_blink(gpio_num, times):
     for i in range(times):
@@ -21,6 +19,10 @@ def LED_blink(gpio_num, times):
         time.sleep(0.5)
         gpio.output(gpio_num, gpio.LOW)
         time.sleep(0.5)
+def LED_on(gpio_num, secs):
+    gpio.output(gpio_num, gpio.HIGH)
+    time.sleep(secs)
+    gpio.output(gpio_num, gpio.LOW)
 
 if __name__ == '__main__':
     try:
@@ -37,7 +39,8 @@ if __name__ == '__main__':
         while True:
             LED_blink(21, 1)
             if status == True:
-                LED_blink(20,2)
+                LED_on(21,2)
+                LED_on(20,4)
                 status = False
     finally:
         gpio.cleanup()
