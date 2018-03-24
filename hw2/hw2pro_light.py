@@ -8,8 +8,8 @@ stats = 1
 
 def setup(lights):
     gpio.setmode(gpio.BCM)
-    for light in lights:
-        gpio.setup(light, gpio.OUT)
+    for i in lights:
+        gpio.setup(lights[i], gpio.OUT)
     # for stop
     gpio.output(lights[1], gpio.HIGH)
 
