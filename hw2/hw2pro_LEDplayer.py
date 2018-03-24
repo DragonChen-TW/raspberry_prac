@@ -11,8 +11,8 @@ def trigger(gpio_num):
         light.turnON(lights['green'])
         status = 2
     else:
-        light.turnON(lights['green'])
-        light.turnOFF(lights['yellow'])
+        light.turnOFF(lights['green'])
+        light.turnON(lights['yellow'])
         status = 1
 
 if __name__ == '__main__':
