@@ -10,6 +10,7 @@ def setup(gpio_num, OUT_IN):
 def motion(gpio_num):
     global status
     if gpio.input(gpio_num) and status == False:
+        print('PIR detected !')
         status = True
 
 def LED_blink(gpio_num, times):
@@ -36,7 +37,7 @@ if __name__ == '__main__':
         setup(21, 'OUT')
 
         gpio.add_event_detect(15, gpio.RISING, callback=motion, bouncetime=300)
-        
+
         while True:
             LED_blink(21, 1)
             if status == True:
