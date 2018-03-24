@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
         gpio.setmode(gpio.BCM)
         # PIR
-        setup(15, 'IN')
+        setup(14, 'IN')
         # redGreen
         setup(20, 'OUT')
         setup(21, 'OUT')
