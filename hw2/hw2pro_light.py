@@ -11,7 +11,7 @@ def setup(lights):
     for i in lights:
         gpio.setup(lights[i], gpio.OUT)
     # for stop
-    gpio.output(lights[1], gpio.HIGH)
+    gpio.output(lights['yellow'], gpio.HIGH)
 
 def turnON(gpio_num):
     gpio.output(gpio_num, gpio.HIGH)
