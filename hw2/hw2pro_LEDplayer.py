@@ -3,7 +3,9 @@ import time
 
 import hw2pro_light as light
 
-def trigger():
+def trigger(gpio_num):
+    print('trigger')
+    global status
     print(status)
 
 if __name__ == '__main__':
