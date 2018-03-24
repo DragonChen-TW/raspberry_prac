@@ -8,12 +8,6 @@ def setup(lights, gpio_PIR):
     for i in lights:
         gpio.setup(lights[i], gpio.OUT)
 
-    # global
-    stats = 1
-    # 1 ==> stop
-    # 2 ==> play
-    # 3 ==> pause
-    
     # for stop
     gpio.output(lights['yellow'], gpio.HIGH)
 

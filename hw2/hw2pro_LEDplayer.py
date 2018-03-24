@@ -5,8 +5,16 @@ import hw2pro_light as light
 
 def trigger(gpio_num):
     print('trigger')
-    global status
+    global status, lights
     print(status)
+    if status == 1:
+        turnOFF(lights['yellow'])
+        turnON(lights['green'])
+        status = 2
+    else:
+        turnON(lights['green'])
+        turnOFF(lights['yellow'])
+        status = 1
 
 if __name__ == '__main__':
     try:
@@ -14,6 +22,10 @@ if __name__ == '__main__':
         gpio_PIR = 14
         light.setup(lights, gpio_PIR)
         gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=trigger, bouncetime=300)
+        status = 1
+        # 1 ==> stop
+        # 2 ==> play
+        # 3 ==> pause
 
         while True:
             time.sleep(1)
