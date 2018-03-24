@@ -6,6 +6,7 @@ def setup(gpio_num, OUT_IN):
         gpio.setup(gpio_num, gpio.IN, pull_up_down=gpio.PUD_DOWN)
     elif OUT_IN == 'OUT':
         gpio.setup(gpio_num, gpio.OUT)
+        gpio.output(gpio_num, gpio.LOW)
 
 def motion(gpio_num):
     global status
