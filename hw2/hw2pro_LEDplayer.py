@@ -1,6 +1,7 @@
-import hw2pro_light as light
+from RPi import GPIO as gpio
 import time
 
+import hw2pro_light as light
 
 def trigger():
     print(status)
