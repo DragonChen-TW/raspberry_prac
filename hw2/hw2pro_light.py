@@ -1,16 +1,19 @@
 from RPi import GPIO as gpio
 
-# global
-stats = 1
-# 1 ==> stop
-# 2 ==> play
-# 3 ==> pause
+
 
 def setup(lights, gpio_PIR):
     gpio.setmode(gpio.BCM)
     gpio.setup(gpio_PIR, gpio.IN)
     for i in lights:
         gpio.setup(lights[i], gpio.OUT)
+
+    # global
+    stats = 1
+    # 1 ==> stop
+    # 2 ==> play
+    # 3 ==> pause
+    
     # for stop
     gpio.output(lights['yellow'], gpio.HIGH)
 
