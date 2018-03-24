@@ -26,23 +26,26 @@ def LED_on(gpio_num, secs):
 
 if __name__ == '__main__':
     try:
-        # global
+        # global variable setting
         status = False
+        gpio_PIR = 14
+        gpio1 = 21
+        gpio2 = 20
 
         gpio.setmode(gpio.BCM)
         # PIR
-        setup(14, 'IN')
+        setup(gpio_PIR, 'IN')
         # redGreen
-        setup(20, 'OUT')
-        setup(21, 'OUT')
+        setup(gpio2, 'OUT')
+        setup(gpio1, 'OUT')
 
-        gpio.add_event_detect(15, gpio.RISING, callback=motion, bouncetime=300)
+        gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=motion, bouncetime=300)
 
         while True:
-            LED_blink(21, 1)
+            LED_blink(gpio1, 1)
             if status == True:
-                LED_on(21,2)
-                LED_on(20,4)
+                LED_on(gpio1,2)
+                LED_on(gpio2,4)
                 status = False
     finally:
         gpio.cleanup()
