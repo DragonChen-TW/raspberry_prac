@@ -40,6 +40,7 @@ def nextSong():
     light.turnOFF(lights['green'])
     light.blink(lights, 3)
     audio.nextSong()
+    audio.play()
     light.turnON(lights['yellow'])
     status = 2
 
