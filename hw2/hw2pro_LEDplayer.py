@@ -6,14 +6,15 @@ import hw2pro_light as light
 def trigger(gpio_num):
     global status, lights, count
     print('trigger status={}'.format(status))
-    # if status == 1:
-    #     light.turnOFF(lights['yellow'])
-    #     light.turnON(lights['green'])
-    #     status = 2
-    # elif status == 2:
-    #     light.turnOFF(lights['green'])
-    #     light.turnON(lights['yellow'])
-    #     status = 1
+    if status == 1:
+        light.turnOFF(lights['yellow'])
+        light.turnON(lights['green'])
+        status = 2
+    elif status == 2:
+        light.turnOFF(lights['green'])
+        light.turnON(lights['yellow'])
+        status = 1
+    else:
     count += 1
     print(count)
 
@@ -22,7 +23,7 @@ if __name__ == '__main__':
         lights = {'red':16, 'yellow':20, 'green':21}
         gpio_PIR = 14
         light.setup(lights, gpio_PIR)
-        gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=trigger)
+        gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=trigger, bouncetime=0)
 
         status = 1
         count = 0
@@ -31,6 +32,6 @@ if __name__ == '__main__':
         # 3 ==> pause
 
         while True:
-            time.sleep(20)
+            time.sleep(10)
     finally:
         gpio.cleanup()
