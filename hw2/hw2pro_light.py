@@ -6,6 +6,7 @@ def setup(lights, gpio_PIR):
     gpio.setup(gpio_PIR, gpio.IN, pull_up_down=gpio.PUD_DOWN)
     for i in lights:
         gpio.setup(lights[i], gpio.OUT)
+        gpio.output(lights[i], gpio.LOW)
 
     # for stop
     gpio.output(lights['yellow'], gpio.HIGH)
