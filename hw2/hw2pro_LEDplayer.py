@@ -51,7 +51,7 @@ if __name__ == '__main__':
                     light.turnOFF(lights['green'])
                     light.turnON(lights['yellow'])
                     status = 3
-                elif count == 2:
+                elif count >= 3:
                     # pause
                     light.turnOFF(lights['green'])
                     light.blink(lights, 3)
