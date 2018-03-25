@@ -56,6 +56,7 @@ if __name__ == '__main__':
                     light.turnOFF(lights['green'])
                     light.blink(lights, 3)
                     status = 3
+                count = 0
 
     finally:
         gpio.cleanup()
