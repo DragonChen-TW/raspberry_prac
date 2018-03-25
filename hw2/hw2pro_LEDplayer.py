@@ -62,6 +62,7 @@ if __name__ == '__main__':
         while True:
             time.sleep(10)
             print('{} times, count is {}'.format(i,count))
+            i += 1
             if status == 2:
                 if count == 1:
                     pause()
