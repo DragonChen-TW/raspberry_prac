@@ -4,7 +4,7 @@ import time
 import hw2pro_light as light
 
 def trigger(gpio_num):
-    global status, lights, count
+    global lights, status, count
     print('trigger status={}'.format(status))
 
     if status == 1:
@@ -19,10 +19,6 @@ def trigger(gpio_num):
         light.turnOFF(lights['red'])
         light.turnON(lights['green'])
         status = 2
-
-    if gpio.input(gpio_num):
-        count += 1
-
 
 if __name__ == '__main__':
     try:
