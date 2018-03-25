@@ -8,15 +8,18 @@ def trigger(gpio_num):
     print('trigger status={}'.format(status))
 
     light.turnON(lights['red'])
-    # if status == 1:
-    #     light.turnOFF(lights['yellow'])
-    #     light.turnON(lights['green'])
-    #     status = 2
-    # elif status == 2:
-    #     light.turnOFF(lights['green'])
-    #     light.turnON(lights['yellow'])
-    #     status = 1
-    # else:
+    if status == 1:
+        # turn to play
+        light.turnOFF(lights['yellow'])
+        light.turnON(lights['green'])
+        status = 2
+    elif status == 2:
+        count += 1
+    elif status == 3:
+        # continue play
+        light.turnOFF(lights['red'])
+        light.turnON(lights['green'])
+        status = 2
     count += 1
     print(count)
 
@@ -37,7 +40,22 @@ if __name__ == '__main__':
 
         while True:
             time.sleep(10)
-            print(status, count)
-            count = 0
+            if status == 2:
+                if count == 1:
+                    # pause
+                    light.turnOFF(lights['green'])
+                    light.turnON(lights['red'])
+                    status = 3
+                elif count == 2:
+                    # pause
+                    light.turnOFF(lights['green'])
+                    light.turnON(lights['yellow'])
+                    status = 3
+                elif count == 2:
+                    # pause
+                    light.turnOFF(lights['green'])
+                    light.blink(lights, 3)
+                    status = 3
+
     finally:
         gpio.cleanup()

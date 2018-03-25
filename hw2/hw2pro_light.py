@@ -15,3 +15,15 @@ def turnON(gpio_num):
 
 def turnOFF(gpio_num):
     gpio.output(gpio_num, gpio.LOW)
+
+def blink(lights, times):
+    import time
+    for i in range(times):
+        turnON(lights['red'])
+        turnON(lights['green'])
+        turnON(lights['yellow'])
+        time.sleep(0.5)
+        turnOFF(lights['red'])
+        turnOFF(lights['green'])
+        turnOFF(lights['yellow'])
+        time.sleep(0.5)
