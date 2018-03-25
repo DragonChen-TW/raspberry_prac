@@ -7,7 +7,6 @@ def trigger(gpio_num):
     global status, lights, count
     print('trigger status={}'.format(status))
 
-    light.turnON(lights['red'])
     if status == 1:
         # turn to play
         light.turnOFF(lights['yellow'])
@@ -20,10 +19,10 @@ def trigger(gpio_num):
         light.turnOFF(lights['red'])
         light.turnON(lights['green'])
         status = 2
-    count += 1
-    print(count)
 
-    light.turnOFF(lights['red'])
+    if gpio.input(gpio_num):
+        count += 1
+
 
 if __name__ == '__main__':
     try:
