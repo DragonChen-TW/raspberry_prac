@@ -2,8 +2,7 @@ from RPi import GPIO as gpio
 import time
 
 import hw2pro_light as light
-
-
+import hw2pro_audio as audio
 
 def trigger(gpio_num):
     global lights, status, count
@@ -14,13 +13,14 @@ def trigger(gpio_num):
     elif status == 2:
         count += 1
     elif status == 3:
-        play()
+        unpause()
 
 if __name__ == '__main__':
     try:
         lights = {'red':16, 'yellow':20, 'green':21}
         gpio_PIR = 14
         light.setup(lights, gpio_PIR)
+        audio.setup()
         gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=trigger, bouncetime=1)
 
         status = 1
@@ -43,34 +43,43 @@ if __name__ == '__main__':
         gpio.cleanup()
 
 
-
 # ============ Status ============
 # 1
 def stop():
     global lights, status
     light.turnOFF(lights['green'])
+    audio.stop()
     light.turnON(lights['yellow'])
     status = 1
 # 2
 def play():
     global lights, status
-    light.turnOFF(lights['red'])
     light.turnOFF(lights['yellow'])
+    audio.play()
+    light.turnON(lights['green'])
+    status = 2
+def unpause():
+    global lights, status
+    light.turnOFF(lights['red'])
+    audio.unpause()
     light.turnON(lights['green'])
     status = 2
 # 3
 def pause():
     global lights, status
     light.turnOFF(lights['green'])
+    audio.pause()
     light.turnON(lights['red'])
     status = 3
+
 
 # next song
 def nextSong():
     global lights, status
     light.turnOFF(lights['green'])
     light.blink(lights, 3)
-    light.turnON(lights['red'])
+    audio.nextSong()
+    light.turnON(lights['yellow'])
     status = 2
 
 # ============ Status ============
