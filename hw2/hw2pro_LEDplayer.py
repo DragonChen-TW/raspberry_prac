@@ -23,7 +23,7 @@ if __name__ == '__main__':
         gpio_PIR = 14
         light.setup(lights, gpio_PIR)
         gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=trigger)
-        
+
         status = 1
         count = 0
         # 1 ==> stop
@@ -31,6 +31,6 @@ if __name__ == '__main__':
         # 3 ==> pause
 
         while True:
-            time.sleep(2)
+            time.sleep(20)
     finally:
         gpio.cleanup()
