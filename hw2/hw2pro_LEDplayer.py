@@ -3,22 +3,50 @@ import time
 
 import hw2pro_light as light
 
+
+
 def trigger(gpio_num):
     global lights, status, count
     print('trigger status={}'.format(status))
 
     if status == 1:
-        # turn to play
-        light.turnOFF(lights['yellow'])
-        light.turnON(lights['green'])
-        status = 2
+        play()
     elif status == 2:
         count += 1
     elif status == 3:
-        # continue play
-        light.turnOFF(lights['red'])
-        light.turnON(lights['green'])
-        status = 2
+        play()
+
+# ============ Status ============
+# 1
+def stop():
+    global lights, status
+    light.turnOFF(lights['green'])
+    light.turnON(lights['yellow'])
+    status = 1
+# 2
+def play():
+    global lights, status
+    light.turnOFF(lights['red'])
+    light.turnOFF(lights['yellow'])
+    light.turnON(lights['green'])
+    status = 2
+# 3
+def pause():
+    global lights, status
+    light.turnOFF(lights['green'])
+    light.turnON(lights['red'])
+    status = 3
+
+# next song
+def nextSong():
+    global lights, status
+    light.turnOFF(lights['green'])
+    light.blink(lights, 3)
+    light.turnON(lights['red'])
+    status = 2
+
+# ============ Status ============
+
 
 if __name__ == '__main__':
     try:
@@ -29,29 +57,16 @@ if __name__ == '__main__':
 
         status = 1
         count = 0
-        # 1 ==> stop
-        # 2 ==> play
-        # 3 ==> pause
 
         while True:
             time.sleep(10)
             if status == 2:
                 if count == 1:
-                    # pause
-                    light.turnOFF(lights['green'])
-                    light.turnON(lights['red'])
-                    status = 3
+                    pause()
                 elif count == 2:
-                    # pause
-                    light.turnOFF(lights['green'])
-                    light.turnON(lights['yellow'])
-                    status = 3
+                    stop()
                 elif count >= 3:
-                    # pause
-                    light.turnOFF(lights['green'])
-                    light.blink(lights, 3)
-                    status = 3
+                    nextSong()
                 count = 0
-
     finally:
         gpio.cleanup()
