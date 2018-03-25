@@ -48,7 +48,7 @@ def nextSong():
 def trigger(gpio_num):
     if gpio.input(gpio_num):
         global lights, status, count
-        print('trigger status={}'.format(status))
+        print('trigger status={} count = {}'.format(status, count), end='', flush=True)
         if status == 1:
             play()
         elif status == 2:
