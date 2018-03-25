@@ -16,4 +16,3 @@ def pause():
     music.pause()
 def nextSong():
     music.load('slow.mp3')
-    music.stop()

@@ -41,7 +41,7 @@ def nextSong():
     light.blink(lights, 3)
     audio.nextSong()
     light.turnON(lights['yellow'])
-    status = 2
+    status = 1
 
 # ============ Status ============
 
