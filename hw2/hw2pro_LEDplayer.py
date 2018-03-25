@@ -21,7 +21,7 @@ if __name__ == '__main__':
         lights = {'red':16, 'yellow':20, 'green':21}
         gpio_PIR = 14
         light.setup(lights, gpio_PIR)
-        gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=trigger, bouncetime=100)
+        gpio.add_event_detect(gpio_PIR, gpio.RISING, callback=trigger)
         status = 1
         # 1 ==> stop
         # 2 ==> play
