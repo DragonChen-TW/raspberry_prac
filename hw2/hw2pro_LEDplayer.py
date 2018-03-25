@@ -28,7 +28,7 @@ if __name__ == '__main__':
         # 3 ==> pause
 
         while True:
-            time.sleep(5)
+            time.sleep(8)
             print(status)
     finally:
         gpio.cleanup()
