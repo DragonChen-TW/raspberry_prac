@@ -71,8 +71,8 @@ def printStatus():
     elif status == 3:
         str_status = 'PAUSE'
     print('=========================')
-    print('||        {:^7}       ||'.format(str_status))
-    print('|| Status: {} Count: {}||'.format(status, count))
+    print('||       {:^7}       ||'.format(str_status))
+    print('|| Status: {}  Count: {} ||'.format(status, count))
     print('=========================')
 
 if __name__ == '__main__':
