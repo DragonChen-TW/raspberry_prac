@@ -11,6 +11,7 @@ def stop():
     light.turnOFF(lights['green'])
     audio.stop()
     light.turnON(lights['yellow'])
+    print('---music is stoped---')
     status = 1
 # 2
 def play():
@@ -18,12 +19,14 @@ def play():
     light.turnOFF(lights['yellow'])
     audio.play()
     light.turnON(lights['green'])
+    print('---music is playing---')
     status = 2
 def unpause():
     global lights, status
     light.turnOFF(lights['red'])
     audio.unpause()
     light.turnON(lights['green'])
+    print('---music is unpaused---')
     status = 2
 # 3
 def pause():
@@ -31,6 +34,7 @@ def pause():
     light.turnOFF(lights['green'])
     audio.pause()
     light.turnON(lights['red'])
+    print('---music is paused---')
     status = 3
 
 
@@ -48,13 +52,15 @@ def nextSong():
 def trigger(gpio_num):
     if gpio.input(gpio_num):
         global lights, status, count
-        print('trigger status={} count = {}'.format(status, count), end='', flush=True)
+        print('trigger')
         if status == 1:
             play()
         elif status == 2:
             count += 1
         elif status == 3:
             unpause()
+
+        print('== Status: {} Count: {} =='.format(status, count))
 
 if __name__ == '__main__':
     try:
