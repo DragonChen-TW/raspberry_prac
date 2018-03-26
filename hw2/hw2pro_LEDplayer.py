@@ -1,5 +1,5 @@
 from RPi import GPIO as gpio
-import time
+import time, os
 
 import hw2pro_light as light
 import hw2pro_audio as audio
@@ -45,6 +45,7 @@ def nextSong():
     light.blink(lights, 3)
     audio.nextSong()
     light.turnON(lights['yellow'])
+    print('---loading next song---')
     status = 1
 
 # ============ Status ============
@@ -60,6 +61,13 @@ def trigger(gpio_num):
         elif status == 3:
             unpause()
 
+def printStatus():
+    global status, count
+    os.system('clear')
+    print('=========================')
+    print('|| Status: {} Count: {}||'.format(status, count))
+    print('=========================')
+
 if __name__ == '__main__':
     try:
         lights = {'red':16, 'yellow':20, 'green':21}
@@ -73,8 +81,8 @@ if __name__ == '__main__':
         i = 0
 
         while True:
+            printStatus()
             time.sleep(10)
-            print('== Status: {} Count: {} =='.format(status, count))
             i += 1
             if status == 2:
                 if count == 1:
