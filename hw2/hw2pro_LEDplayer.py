@@ -64,7 +64,14 @@ def trigger(gpio_num):
 def printStatus():
     global status, count
     os.system('clear')
+    if status == 1:
+        str_status = 'STOP'
+    elif status == 2:
+        str_status = 'PLAYING'
+    elif status == 3:
+        str_status = 'PAUSE'
     print('=========================')
+    print('||        %7s       ||'.format(str_status))
     print('|| Status: {} Count: {}||'.format(status, count))
     print('=========================')
 
