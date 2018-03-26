@@ -60,8 +60,6 @@ def trigger(gpio_num):
         elif status == 3:
             unpause()
 
-        print('== Status: {} Count: {} =='.format(status, count))
-
 if __name__ == '__main__':
     try:
         lights = {'red':16, 'yellow':20, 'green':21}
@@ -76,7 +74,7 @@ if __name__ == '__main__':
 
         while True:
             time.sleep(10)
-            print('{} times, count is {}'.format(i,count))
+            print('== Status: {} Count: {} =='.format(status, count))
             i += 1
             if status == 2:
                 if count == 1:
