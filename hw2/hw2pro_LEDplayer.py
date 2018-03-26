@@ -86,6 +86,7 @@ if __name__ == '__main__':
 
         while True:
             printStatus()
+            print('PIR is listening')
             time.sleep(10)
             if status == 2:
                 if count == 1:
