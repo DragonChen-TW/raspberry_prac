@@ -71,7 +71,7 @@ def printStatus():
     elif status == 3:
         str_status = 'PAUSE'
     print('=========================')
-    print('||        %7s       ||'.format(str_status))
+    print('||        {:^7}       ||'.format(str_status))
     print('|| Status: {} Count: {}||'.format(status, count))
     print('=========================')
 
