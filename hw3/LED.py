@@ -1,4 +1,4 @@
-from RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 def setup(gpio_num, ctr):
     if ctr == 'setup':
