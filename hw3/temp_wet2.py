@@ -5,7 +5,7 @@ def heatStroke(temp, wet):
     return temp + wet * 0.1
 
 def dewPoint(temp, wet):
-    a = 17.271, b = 237.7
+    a = 17.271; b = 237.7
     d = (a * temp) / (b + temp) + math.log(wet / 100)
     return (b * temp) / (a - d)
 
