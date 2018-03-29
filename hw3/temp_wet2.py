@@ -31,6 +31,14 @@ if __name__ == '__main__':
             print('---------------------------------------------------')
             print('{} >> wet = {}, temp = {}'.format(cur_time, wet, temp))
             print('heatStroke = {}, dewPoint = {}'.format(heat_stroke, dew_point))
+            if wet >= 60:
+                turnON(led1)
+            else:
+                turnOFF(led1)
+            if temp >= 35:
+                turnON(led2)
+            else:
+                turnOFF(led2)
         else:
             print('Fail to get reading!')
         time.sleep(5)
