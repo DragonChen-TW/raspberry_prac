@@ -35,7 +35,7 @@ if __name__ == '__main__':
                 LED.turnON(led1)
             else:
                 LED.turnOFF(led1)
-            if temp >= 35:
+            if temp >= 30:
                 LED.turnON(led2)
             else:
                 LED.turnOFF(led2)
