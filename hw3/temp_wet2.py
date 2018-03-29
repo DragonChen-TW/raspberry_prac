@@ -28,6 +28,7 @@ if __name__ == '__main__':
         heat_stroke = heatStroke(temp, wet)
 
         if wet and temp:
+            print('---------------------------------------------------')
             print('{} >> wet = {}, temp = {}'.format(cur_time, wet, temp))
             print('heatStroke = {}, dewPoint = {}'.format(heat_stroke, dew_point))
         else:
