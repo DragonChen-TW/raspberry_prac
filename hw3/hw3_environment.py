@@ -7,7 +7,7 @@ if __name__ == '__main__':
     sensor_num = 14
     lights = {'red':20, 'yellow':16, 'green':21}
 
-    setup(lights)
+    light.setup(lights)
 
     while True:
         cur_time = time.ctime()
