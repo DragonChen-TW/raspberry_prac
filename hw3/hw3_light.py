@@ -12,3 +12,6 @@ def turnON(gpio_num):
 def turnOFFALL(lights):
     for i in lights:
         gpio.output(lights[i], gpio.LOW)
+
+def end():
+    gpio.cleanup()
