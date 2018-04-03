@@ -9,6 +9,6 @@ def setup(lights):
 def turnON(gpio_num):
     gpio.output(gpio_num, gpio.HIGH)
 
-def turnOFFALL(lighs):
+def turnOFFALL(lights):
     for i in lights:
         gpio.output(lights[i], gpio.LOW)
