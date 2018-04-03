@@ -1,6 +1,6 @@
 import Adafruit_DHT
 import time
-import hw3hw3_light as light
+import hw3_light as light
 
 if __name__ == '__main__':
     sensor = Adafruit_DHT.DHT11
