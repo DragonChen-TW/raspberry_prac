@@ -7,6 +7,8 @@ if __name__ == '__main__':
     sensor_num = 14
     lights = {'red':20, 'yellow':16, 'green':21}
 
+    setup(lights)
+
     while True:
         cur_time = time.ctime()
         wet, temp = Adafruit_DHT.read_retry(sensor, sensor_num)
