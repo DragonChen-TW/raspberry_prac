@@ -21,4 +21,4 @@ if __name__ == '__main__':
             # print(gpio.input(14))
             time.sleep(1)
     finally:
-        gpio.clenaup()
+        gpio.cleanup()
