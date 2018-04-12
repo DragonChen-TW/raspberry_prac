@@ -8,11 +8,11 @@ if __name__ == '__main__':
 
     p = gpio.PWM(12, 0.5)
 
-    for i in range(3):
+    for i in range(6):
         p.start(1)
         p.ChangeFrequency(659)
-        time.sleep(0.3)
+        time.sleep(0.1)
         p.stop()
-        time.sleep(0.7)
+        time.sleep(0.4)
 
-    GPIO.cleanup()
+    gpio.cleanup()
