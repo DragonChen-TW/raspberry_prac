@@ -2,6 +2,7 @@ import spidev
 import time
 
 def readadc(adc_num):
+    print('adc_num is', adc_num)
     if adc_num > 7 or adc_num < 0:
         return -1
     global spi
