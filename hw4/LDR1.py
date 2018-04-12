@@ -13,8 +13,11 @@ def turnOnOff(gpio_num, LDR):
         LED.turnOFF(gpio_num)
 
 if __name__ == '__main__':
-    setup()
-    while True:
-        turnOnOff(16, gpio.input(14))
-        print(gpio.input(14))
-        time.sleep(1)
+    try:
+        setup()
+        while True:
+            turnOnOff(16, gpio.input(14))
+            print(gpio.input(14))
+            time.sleep(1)
+    finally:
+        gpio.clenaup()
