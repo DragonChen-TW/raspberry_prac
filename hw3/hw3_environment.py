@@ -2,6 +2,7 @@ import Adafruit_DHT
 import time
 import RPi.GPIO as gpio
 import hw3_light as light
+import hw3_beep as beep
 
 if __name__ == '__main__':
     try:
@@ -20,6 +21,7 @@ if __name__ == '__main__':
                 light.turnOFFALL(lights)
                 if temp >= 31:
                     light.turnON(lights['red'])
+                    beep.beepTimes(10)
                 elif temp >= 27:
                     light.turnON(lights['yellow'])
                 else:
