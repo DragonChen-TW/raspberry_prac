@@ -7,6 +7,7 @@ def setup():
     gpio.setup(16, gpio.OUT)
 
 def turnOnOff(gpio_num, LDR):
+    print('LDR is',LDR)
     if LDR == 1:
         LED.turnON(gpio_num)
     else:
