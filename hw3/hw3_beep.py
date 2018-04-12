@@ -10,3 +10,5 @@ if __name__ == '__main__':
     beep.satrt(0)
     beep.ChangeDutyCycle(50)
     beep.stop()
+
+    gpio.cleanup()
