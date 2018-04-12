@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 def doReMi():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(12, GPIO.OUT)
-    p = GPIO.PWM(12, 0.5)
+    p = GPIO.PWM(12, 100)
     p.start(50)
 
     print("Do")
