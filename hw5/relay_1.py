@@ -1,4 +1,4 @@
-import RPi.GPIO as gpio_num
+import RPi.GPIO as gpio
 import LED, time
 
 if __name__ == '__main__':
