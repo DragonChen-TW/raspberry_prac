@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
         print(icon)
 
-        for _ in range(150):
+        for _ in range(500):
             for i in range(8):
                 gpio.output(row_led[i], gpio.HIGH)
                 gpio.output(col_led[i], gpio.LOW)
