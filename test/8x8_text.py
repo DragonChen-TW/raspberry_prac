@@ -27,8 +27,6 @@ def show8x8(image):
     #             gpio.output(row_led[])
 
 
-
-
 col_led = [17, 27, 22, 5, 6, 13, 19, 26]
 row_led = [15, 18, 23, 24, 12, 16, 20, 21]
 
@@ -46,6 +44,7 @@ if __name__ == '__main__':
             gpio.output(row_led[i], gpio.HIGH)
             gpio.output(col_led[i], gpio.LOW)
             time.sleep(1)
+            gpio.output(col_led[i], gpio.HIGH)
 
         # for i in col_led[0:5]:
         #     gpio.output(i, gpio.LOW)
