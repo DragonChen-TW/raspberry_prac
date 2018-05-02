@@ -16,14 +16,17 @@ if __name__ == '__main__':
     try:
         setupAll()
 
+        temp1 = [0, 1]
+        temp2 = [1, 0]
+        icon = [temp1 * 4, temp2 * 4] * 4
 
-        for i in col_led[0:3]:
-            gpio.output(i, gpio.LOW)
-        for i in row_led[0:3]:
-            gpio.output(i, gpio.HIGH)
+        print(icon)
 
+        # for i in col_led[0:5]:
+        #     gpio.output(i, gpio.LOW)
+        # for i in row_led[0:3]:
+        #     gpio.output(i, gpio.HIGH)
 
         time.sleep(10)
-
     finally:
         gpio.cleanup()
