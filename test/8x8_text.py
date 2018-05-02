@@ -20,11 +20,10 @@ if __name__ == '__main__':
 
         for i in col_led:
             gpio.output(i, gpio.LOW)
-
-        time.sleep(10)
-
         for i in row_led:
             gpio.output(i, gpio.HIGH)
+        
+        time.sleep(10)
 
     except:
         gpio.cleanup()
