@@ -7,7 +7,8 @@ def setupAll():
     for i in col_led + row_led:
         try:
             gpio.setup(i, gpio.OUT)
-
+        except:
+            pass
 col_led = [17, 27, 22, 5, 6, 13, 19, 26]
 row_led = [14, 15, 18, 23, 12, 16, 20, 21]
 
