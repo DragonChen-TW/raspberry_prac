@@ -22,12 +22,12 @@ def show8x8(image, sec):
         for i in range(len(image)):
             for j in range(len(image[i])):
                 if image[i][j]:
-                    gpio.output(row_led[i], gpio.HIGH)
+                    gpio.output(row_led[j], gpio.HIGH)
                 else:
-                    gpio.output(row_led[i], gpio.LOW)
-            gpio.output(col_led[j], gpio.LOW)
+                    gpio.output(row_led[j], gpio.LOW)
+            gpio.output(col_led[i], gpio.LOW)
             time.sleep(0.001)
-            gpio.output(col_led[j], gpio.HIGH)
+            gpio.output(col_led[i], gpio.HIGH)
 
 
 col_led = [17, 27, 22, 5, 6, 13, 19, 26]
