@@ -18,10 +18,10 @@ if __name__ == '__main__':
         setupAll()
 
 
-        for i in range(len(col_led)):
+        for i in range(len(col_led) / 2):
             gpio.output(col_led[i], gpio.LOW)
             gpio.output(col_led[i + 4], gpio.HIGH)
-        for i in range(len(row_led)):
+        for i in range(len(row_led) / 2):
             gpio.output(row_led[i], gpio.HIGH)
             gpio.output(row_led[i + 4], gpio.LOW)
 
