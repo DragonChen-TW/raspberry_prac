@@ -46,7 +46,7 @@ if __name__ == '__main__':
                 gpio.output(col_led[i], gpio.LOW)
                 time.sleep(0.05)
                 gpio.output(col_led[i], gpio.HIGH)
-        for _ in range(10):
+        for _ in range(20):
             for i in range(8):
                 gpio.output(row_led[i], gpio.HIGH)
                 gpio.output(col_led[i], gpio.LOW)
@@ -56,7 +56,7 @@ if __name__ == '__main__':
             for i in range(8):
                 gpio.output(row_led[i], gpio.HIGH)
                 gpio.output(col_led[i], gpio.LOW)
-                time.sleep(0.001)
+                time.sleep(0.005)
                 gpio.output(col_led[i], gpio.HIGH)
 
         # for i in col_led[0:5]:
