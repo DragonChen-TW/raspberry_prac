@@ -20,10 +20,10 @@ if __name__ == '__main__':
 
         for i in range(len(col_led)):
             gpio.output(col_led[i], gpio.LOW)
-            gpio.output(col_led[i], gpio.HIGH)
+            gpio.output(col_led[i + 4], gpio.HIGH)
         for i in range(len(row_led)):
             gpio.output(row_led[i], gpio.HIGH)
-            gpio.output(row_led[i], gpio.LOW)
+            gpio.output(row_led[i + 4], gpio.LOW)
 
 
         time.sleep(10)
