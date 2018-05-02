@@ -21,10 +21,10 @@ def show8x8(image):
     for i in col_led:
         gpio.output(i, gpio.HIGH)
 
-    for i in range(len(image)):
-        for j in range(len(image[i])):
-            if image[i][j]:
-                gpio.output(row_led[])
+    # for i in range(len(image)):
+    #     for j in range(len(image[i])):
+    #         if image[i][j]:
+    #             gpio.output(row_led[])
 
 
 
