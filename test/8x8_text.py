@@ -11,9 +11,24 @@ def setupAll():
             print(str(i) + "wasn't be setuped.")
 def cleanAll():
     global col_led, row_led
-    for i in col_led + row_led:
+    for i in row_led:
         gpio.output(i, gpio.LOW)
+    for i in col_led:
+        gpio.output(i, gpio.HIGH)
     gpio.cleanup()
+
+def show8x8(image):
+    for i in col_led:
+        gpio.output(i, gpio.HIGH)
+
+    for i in range(len(image)):
+        for j in range(len(image[i])):
+            if image[i][j]:
+                gpio.output(row_led[])
+
+
+
+
 col_led = [17, 27, 22, 5, 6, 13, 19, 26]
 row_led = [15, 18, 23, 24, 12, 16, 20, 21]
 
@@ -26,6 +41,11 @@ if __name__ == '__main__':
         icon = [temp1 * 4, temp2 * 4] * 4
 
         print(icon)
+
+        for i in range(8):
+            gpio.output(row_led[i], gpio.HIGH)
+            gpio.output(col_led[i], gpio.LOW)
+            time.sleep(1)
 
         # for i in col_led[0:5]:
         #     gpio.output(i, gpio.LOW)
