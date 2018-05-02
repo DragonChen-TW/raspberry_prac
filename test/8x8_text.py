@@ -43,10 +43,12 @@ if __name__ == '__main__':
 
         print(icon)
 
+        for i in range(4):
+            gpio.output(row_led[i], gpio.HIGH)
         for _ in range(500):
             for i in range(8):
-                if i < 4:
-                    gpio.output(row_led[i], gpio.HIGH)
+                # if i < 4:
+                #     gpio.output(row_led[i], gpio.HIGH)
                 gpio.output(col_led[i], gpio.LOW)
                 time.sleep(0.001)
                 gpio.output(col_led[i], gpio.HIGH)
