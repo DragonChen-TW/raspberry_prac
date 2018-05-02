@@ -43,7 +43,7 @@ if __name__ == '__main__':
         for i in range(8):
             gpio.output(row_led[i], gpio.HIGH)
             gpio.output(col_led[i], gpio.LOW)
-            time.sleep(1)
+            time.sleep(0.1)
             gpio.output(col_led[i], gpio.HIGH)
 
         # for i in col_led[0:5]:
