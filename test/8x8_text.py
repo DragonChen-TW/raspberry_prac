@@ -5,11 +5,10 @@ def setupAll():
     gpio.setmode(gpio.BCM)
     global col_led, row_led
     for i in col_led + row_led:
-        print(str(i) + 'is setting')
         try:
             gpio.setup(i, gpio.OUT)
         except:
-            print(i)
+            print(str(i) + "wasn't be setuped.")
 col_led = [17, 27, 22, 5, 6, 13, 19, 26]
 row_led = [15, 18, 23, 24, 12, 16, 20, 21]
 
