@@ -19,8 +19,8 @@ def cleanAll():
 
 def show8x8(image, sec):
     for _ in range(int(1000 * sec)):
-        for i in range(len(image)):
-            for j in range(len(image[i])):
+        for i in range(8):
+            for j in range(8):
                 if image[i][j]:
                     gpio.output(row_led[j], gpio.HIGH)
                 else:
