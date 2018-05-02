@@ -17,15 +17,14 @@ if __name__ == '__main__':
     try:
         setupAll()
 
-        for i in row_led:
-            gpio.output(i, gpio.HIGH)
 
-        time.sleep(10)
         for i in col_led:
             gpio.output(i, gpio.LOW)
 
         time.sleep(10)
-        for i in col_led:
+
+        for i in row_led:
             gpio.output(i, gpio.HIGH)
+
     except:
         gpio.cleanup()
