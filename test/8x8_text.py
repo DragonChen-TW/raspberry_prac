@@ -18,18 +18,16 @@ def cleanAll():
     gpio.cleanup()
 
 def show8x8(image, sec):
-    for i in col_led:
-        gpio.output(i, gpio.HIGH)
-
-    for i in range(len(image)):
-        for j in range(len(image[i])):
-            if image[i][j]:
-                gpio.output(row_led[i], gpio.HIGH)
-            else:
-                gpio.output(row_led[i], gpio.LOW)
-        gpio.output(col_led[j], gpio.LOW)
-        time.sleep(0.005)
-        gpio.output(col_led[j], gpio.HIGH)
+    for _ in range(int(sec / 1000)):
+        for i in range(len(image)):
+            for j in range(len(image[i])):
+                if image[i][j]:
+                    gpio.output(row_led[i], gpio.HIGH)
+                else:
+                    gpio.output(row_led[i], gpio.LOW)
+            gpio.output(col_led[j], gpio.LOW)
+            time.sleep(0.001)
+            gpio.output(col_led[j], gpio.HIGH)
 
 
 col_led = [17, 27, 22, 5, 6, 13, 19, 26]
@@ -45,12 +43,14 @@ if __name__ == '__main__':
 
         print(icon)
 
-        for _ in range(500):
-            for i in range(8):
-                gpio.output(row_led[i], gpio.HIGH)
-                gpio.output(col_led[i], gpio.LOW)
-                time.sleep(0.001)
-                gpio.output(col_led[i], gpio.HIGH)
+        # for _ in range(500):
+        #     for i in range(8):
+        #         gpio.output(row_led[i], gpio.HIGH)
+        #         gpio.output(col_led[i], gpio.LOW)
+        #         time.sleep(0.001)
+        #         gpio.output(col_led[i], gpio.HIGH)
+
+        show8x8(icon, 5)
 
         # for i in col_led[0:5]:
         #     gpio.output(i, gpio.LOW)
