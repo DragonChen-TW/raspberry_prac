@@ -9,6 +9,11 @@ def setupAll():
             gpio.setup(i, gpio.OUT)
         except:
             print(str(i) + "wasn't be setuped.")
+def cleanAll():
+    global col_led, row_led
+    for i in col_led + row_led:
+        gpio.output(i, gpio.LOW)
+    gpio.cleanup()
 col_led = [17, 27, 22, 5, 6, 13, 19, 26]
 row_led = [15, 18, 23, 24, 12, 16, 20, 21]
 
@@ -29,4 +34,4 @@ if __name__ == '__main__':
 
         time.sleep(10)
     finally:
-        gpio.cleanup()
+        cleanAll()
