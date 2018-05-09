@@ -29,9 +29,8 @@ class index(View):
             return HttpResponse('Hello, world', status=200)
 
     def post(self, request):
-        print('post')
         data = json.loads(str(request.body, 'utf-8'))
-        logger.info(json.dumps(data))
+        print(json.dumps(data))
         if data['object'] == 'entry':
             for msg_event in entry['messaging']:
                 sender_id = msg_event['sender']['id']
