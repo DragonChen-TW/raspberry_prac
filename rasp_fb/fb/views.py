@@ -32,7 +32,7 @@ class index(View):
         data = json.loads(str(request.body, 'utf-8'))
         # print(json.dumps(data, indent=' '))
         if 'message' in data:
-            for msg_event in entry['messaging']:
+            for msg_event in data['messaging']:
                 sender_id = msg_event['sender']['id']
                 # msg_event
                 if msg_event['message']:
