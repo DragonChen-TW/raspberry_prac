@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
+import logging
 
 import json
 
@@ -17,6 +18,8 @@ import json
 #     else:
 #         pass
 
+logger = logging.getLogger(__name__)
+
 class index(View):
     def get(self, request):
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get('hub.challenge'):
@@ -30,13 +33,11 @@ class index(View):
     def post(self, request):
         data = json.loads(str(request.body, 'utf-8'))
         if data['object'] == 'entry':
-            print(data['entry'])
+            logger.info(json.dumps(data['entry']))
             for msg_event in entry['messaging']:
                 sender_id = msg_event['sender']['id']
                 # msg_event
                 if msg_event['message']:
-                    message_text == 'turn on led'
-                    with open('log.txt', 'w') as log:
-                        log.write(json.dumps(data, separators='\n'))
+                    message_text = 'turn on led'
 
         return HttpResponse('okay', status=200)
