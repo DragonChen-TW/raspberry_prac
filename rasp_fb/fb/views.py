@@ -36,3 +36,7 @@ class index(View):
                 # msg_event
                 if msg_event['message']:
                     message_text == 'turn on led'
+                    with open('log.txt', 'w') as log:
+                        log.write(json.dumps(data, separators='\n'))
+
+        return HttpResponse('okay', status=200)
