@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-import logging
 
 import json
 
@@ -18,7 +17,6 @@ import json
 #     else:
 #         pass
 
-logger = logging.getLogger(__name__)
 
 class index(View):
     def get(self, request):
@@ -31,6 +29,7 @@ class index(View):
             return HttpResponse('Hello, world', status=200)
 
     def post(self, request):
+        print('post')
         data = json.loads(str(request.body, 'utf-8'))
         logger.info(json.dumps(data))
         if data['object'] == 'entry':
