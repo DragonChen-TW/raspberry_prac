@@ -17,7 +17,7 @@ import json
 #         pass
 
 class index(View):
-    def get(request):
+    def get(self, request):
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get('hub.challenge'):
             if request.GET.get('hub.verify_token') == 'Small_Dragon_TW':
                 return HttpResponse(request.GET.get('hub.challenge'), status=200)
@@ -25,6 +25,6 @@ class index(View):
                 return HttpResponse('Verify Fail', status=403)
         else:
             return HttpResponse('Hello, world', status=200)
-    def post(request):
+    def post(self, request):
         with open('out.js', w) as js:
             js.write(request.body)
