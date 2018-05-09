@@ -28,7 +28,7 @@ class index(View):
             return HttpResponse('Hello, world', status=200)
 
     def post(self, request):
-        data = json.loads(request.read())
+        data = json.loads(str(request.body, 'utf-8'))
         if data['object'] == 'entry':
             print(data['entry'])
             for msg_event in entry['messaging']:
