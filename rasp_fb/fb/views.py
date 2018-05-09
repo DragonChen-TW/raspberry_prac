@@ -30,7 +30,7 @@ class index(View):
 
     def post(self, request):
         data = json.loads(str(request.body, 'utf-8'))
-        print(json.dumps(data, indent=' '))
+        # print(json.dumps(data, indent=' '))
         if 'message' in data:
             for msg_event in entry['messaging']:
                 sender_id = msg_event['sender']['id']
