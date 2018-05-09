@@ -26,5 +26,12 @@ class index(View):
         else:
             return HttpResponse('Hello, world', status=200)
     def post(self, request):
-        with open('out.js', w) as js:
-            js.write(request.body)
+        data = json.loads(request.body)
+        if data['object'] == 'entry':
+            print(data['entry'])
+            for msg_event in entry['messaging']::
+                sender_id = msg_event['sender']['id']
+                # msg_event
+                if msg_event['message']:
+                    message_text == 'turn on led'
+                    
