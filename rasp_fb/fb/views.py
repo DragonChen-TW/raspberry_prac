@@ -30,13 +30,11 @@ class index(View):
 
     def post(self, request):
         data = json.loads(str(request.body, 'utf-8'))
-        print(json.dumps(data))
-        if 'messaging' in data['entry']:
-            for msg_event in data['entry']['messaging']:
-                sender_id = msg_event['sender']['id']
-                # msg_event
-                if msg_event['message']:
-                    message_text = 'turn on led'
-                    print(sender_id + ' ' + msg_event['message']['text'])
+        # print(json.dumps(data))
+        for entry in data['entry']:
+            if 'messaging' in entry:
+                for msg in entry['messaging']:
+                    print(msg['sender'], end=' ')
+                    print(msg['message']['text'])
 
         return HttpResponse('okay', status=200)
