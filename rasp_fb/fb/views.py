@@ -37,5 +37,6 @@ class index(View):
                 # msg_event
                 if msg_event['message']:
                     message_text = 'turn on led'
+                    print(sender_id + ' ' + msg_event['message']['text'])
 
         return HttpResponse('okay', status=200)
