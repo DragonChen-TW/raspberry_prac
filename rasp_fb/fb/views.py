@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
+
 import json
 
 # Create your views here.
@@ -25,6 +27,8 @@ class index(View):
                 return HttpResponse('Verify Fail', status=403)
         else:
             return HttpResponse('Hello, world', status=200)
+
+    @csrf_exempt
     def post(self, request):
         data = json.loads(request.body)
         if data['object'] == 'entry':
