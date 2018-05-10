@@ -24,8 +24,7 @@ class index(View):
                     sender = msg['sender']['id']
                     msg = msg['message']['text']
                     print(sender, msg)
-                    reply(sender, msg)
-
+                    self.reply(sender, msg)
         return HttpResponse('okay', status=200)
 
     def reply(sender, send_msg):
