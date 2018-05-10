@@ -26,6 +26,7 @@ def server():
             elif data == 'turn off':
                 LED.turnOFF(21)
             print(data)
+
     finally:
         server_socket.close()
         conn_socket.close()
