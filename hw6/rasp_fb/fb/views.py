@@ -26,7 +26,7 @@ class index(View):
         # personal 844603888893940
 
         data = json.loads(str(request.body, 'utf-8'))
-        print(json.dumps(data))
+        # print(json.dumps(data))
         try:
             for entry in data['entry']:
                 if 'messaging' in entry:
