@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 
-import json
+import json, requests
 
 # Create your views here.
 class index(View):
@@ -21,7 +21,18 @@ class index(View):
         for entry in data['entry']:
             if 'messaging' in entry:
                 for msg in entry['messaging']:
-                    print(msg['sender']['id'], end=' ')
-                    print(msg['message']['text'])
+                    sender = msg['sender']['id']
+                    msg = msg['message']['text']
+                    print(sender, msg)
+                    reply(sender, msg)
 
         return HttpResponse('okay', status=200)
+
+    def reply(sender, send_msg):
+        token = 'EAACEdEose0cBAFS6DlW6RV56XuLOPl3JkU4uhH6G06Nny4n4dIfcYtItzgz5UPZA89FdAXp3ZAYCtZAck9GmCfACIZAN2Dqqhl2eOJM9VgzVY13XhpMH8c1hafs9gbP1aKouUZC0EekUAPITSWA4IZAaAWuTsLZAZCNM7zSZAQsONPZBsZA5KyREyr4Svrsgg2ivpjvHOdwFZBZCjcAZDZD'
+        data = {
+            'recipient': {'id': sender},
+            'message': {'text': 'You just msg me "{}"\nHello there~'.format(send_msg)}
+        }
+        res = requests.post('https://graph.facebook.com/v3.0/me/messages?access_token={}'.format(token), json=data)
+        print(res.content)
