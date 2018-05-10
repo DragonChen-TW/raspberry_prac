@@ -2,7 +2,7 @@ import RPi.GPIO as gpio
 import socket, LED
 
 def server():
-    bind_ip = '192.168.2.185'
+    bind_ip = '192.168.2.199'
     bind_port = 8888
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
