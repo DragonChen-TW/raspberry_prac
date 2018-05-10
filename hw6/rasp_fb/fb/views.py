@@ -32,7 +32,7 @@ class index(View):
         return HttpResponse('okay', status=200)
 
     def reply(self, sender, send_msg):
-        token = 'EAACEdEose0cBAJjtu1EPr1j8ZC17g0ZBAKIxPLAZA3EyYMElylmD3ZBz9dzU1KabMtaeE0c2t1cieNvBVUYK5WfqDgG4XBSXnNbjbR5EvDvt3I6wA7l33ZCX2WCbZASBn94A197ZCJ6shW3b7ICV4ZAlX7v5WHYNeGGcQ2bZBAa3o9BkE1HeFvyvzxF6DB2eYQa3u0yOzJKeEzAZDZD'
+        token = 'EAACEdEose0cBACyr14Hg0erhNrYZCGqPA2gDPpruAeGZA5wfhhMuYIa01xSJLPf29FC5FckLTj1nnNuHsVPDhziA1tvZAb9giGuIymJoZBDXDOUgqUjoZCaG7ruH2I54KW0kZCExfZBBRc7XD8FhJ4wisWISbSf7OboOxzLZB2jEuIExgMPVF80qbkSTcoMtr5J9KMFhGSH6xwZDZD'
         data = {
             'recipient': {'id': sender},
             'message': {'text': 'You just msg me "{}"\nHello there~'.format(send_msg)}
