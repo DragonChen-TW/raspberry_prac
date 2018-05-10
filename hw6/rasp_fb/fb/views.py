@@ -9,7 +9,7 @@ from raspberry import LED
 class index(View):
     def __init__(self):
         super().__init__()
-        LED.setup()
+        LED.setup(2, 'out')
 
     def get(self, request):
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get('hub.challenge'):
