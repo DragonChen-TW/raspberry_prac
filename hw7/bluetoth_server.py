@@ -17,8 +17,11 @@ def server():
             data = str(data, 'utf-8')
             print(data)
             if data == 'turn on':
-                print('receive {}'.format(data))
+                print('receive "{}"'.format(data))
                 LED.turnON(21)
+            elif data == 'turn off':
+                print('receive "{}"'.format(data))
+                LED.turnOFF(21)
 
             send_data = input()
             conn_socket.send(send_data)
