@@ -4,7 +4,7 @@ import LED, time
 def motion(gpio_num):
     global count
     if gpio.input(gpio_num):
-        if not gpio.input(23):
+        if gpio.input(23): # if dark
             count += 1
             LED.turnON(2)
             print('Motion detected {}.'.format(count))
