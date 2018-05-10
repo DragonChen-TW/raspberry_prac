@@ -27,7 +27,7 @@ class index(View):
                     self.reply(sender, msg)
         return HttpResponse('okay', status=200)
 
-    def reply(sender, send_msg):
+    def reply(self, sender, send_msg):
         token = 'EAACEdEose0cBAFS6DlW6RV56XuLOPl3JkU4uhH6G06Nny4n4dIfcYtItzgz5UPZA89FdAXp3ZAYCtZAck9GmCfACIZAN2Dqqhl2eOJM9VgzVY13XhpMH8c1hafs9gbP1aKouUZC0EekUAPITSWA4IZAaAWuTsLZAZCNM7zSZAQsONPZBsZA5KyREyr4Svrsgg2ivpjvHOdwFZBZCjcAZDZD'
         data = {
             'recipient': {'id': sender},
