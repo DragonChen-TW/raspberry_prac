@@ -6,7 +6,7 @@ def client():
         client_socket.connect(('192.168.10.33', 8888))
 
         while True:
-            data = input()
+            data = raw_input()
             client_socket.send(data)
     finally:
         client_socket.close()
