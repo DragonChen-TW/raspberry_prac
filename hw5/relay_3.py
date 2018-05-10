@@ -4,10 +4,11 @@ import LED, time
 def motion(gpio_num):
     global count
     if gpio.input(gpio_num):
-        count += 1
-        LED.turnON(2)
-        print('Motion detected {}.'.format(count))
-        print('LDR is {}'.format(gpio.input(23)))
+        if not gpio.input(23):
+            count += 1
+            LED.turnON(2)
+            print('Motion detected {}.'.format(count))
+            print('LDR is {}'.format(gpio.input(23)))
     else:
         LED.turnOFF(2)
         print('Motion not detected')
