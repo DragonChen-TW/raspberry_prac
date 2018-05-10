@@ -7,7 +7,7 @@ def client():
 
         while True:
             data = input()
-            data = bytes(data)
+            data = data.encode()
             client_socket.send(data)
     finally:
         client_socket.close()
