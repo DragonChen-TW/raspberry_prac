@@ -6,7 +6,7 @@ def server():
     gpio.setmode(gpio.BCM)
     LED.setup(21, 'out')
 
-    server_socket = bt.BluetoothSocket(RFCOMM)
+    server_socket = bt.BluetoothSocket(bt.RFCOMM)
     server_socket.bind(('', 3))
     server_socket.listen(1)
 
