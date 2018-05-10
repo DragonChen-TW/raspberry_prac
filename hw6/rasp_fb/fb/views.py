@@ -17,7 +17,7 @@ class index(View):
 
     def post(self, request):
         data = json.loads(str(request.body, 'utf-8'))
-        # print(json.dumps(data))
+        print(json.dumps(data))
         for entry in data['entry']:
             if 'messaging' in entry:
                 for msg in entry['messaging']:
