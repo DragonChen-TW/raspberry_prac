@@ -7,10 +7,6 @@ from raspberry import LED
 
 # Create your views here.
 class index(View):
-    def __init__(self):
-        super().__init__()
-        LED.setup(2, 'out')
-
     def get(self, request):
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get('hub.challenge'):
             if request.GET.get('hub.verify_token') == 'Small_Dragon_TW':
@@ -45,7 +41,7 @@ class index(View):
         if send_msg == 'turn on':
             LED.turnON(2)
             reply_msg = 'Already turn ON'
-        elif send_msg == 'turn of':
+        elif send_msg == 'turn off':
             LED.turnOFF(2)
             reply_msg = 'Already turn OFF'
         else:
