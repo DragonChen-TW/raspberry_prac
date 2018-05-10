@@ -6,7 +6,7 @@ def motion(gpio_num):
     if gpio.input(gpio_num):
         count += 1
         LED.turnON(2)
-        print(f'Motion detected {count}.')
+        print('Motion detected {}.'.format(count))
     else:
         LED.turnOFF(2)
         print('Motion not detected')
