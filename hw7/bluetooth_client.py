@@ -2,7 +2,7 @@ import bluetooth as bt
 
 def client():
     port = 3
-    client_socket = bt.BluetoothSocket(bt.BFCOMM)
+    client_socket = bt.BluetoothSocket(bt.RFCOMM)
 
     client_socket.connect(('B8:27:EB:C2:41:0D', port))
 
