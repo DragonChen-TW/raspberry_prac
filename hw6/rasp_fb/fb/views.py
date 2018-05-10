@@ -7,6 +7,10 @@ from raspberry import LED
 
 # Create your views here.
 class index(View):
+    def __init__(self):
+        super().__init__()
+        LED.setup(2, 'out')
+
     def get(self, request):
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get('hub.challenge'):
             if request.GET.get('hub.verify_token') == 'Small_Dragon_TW':
