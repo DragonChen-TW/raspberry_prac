@@ -32,10 +32,10 @@ class index(View):
         return HttpResponse('okay', status=200)
 
     def reply(self, sender, send_msg):
-        token = 'EAACEdEose0cBAFS6DlW6RV56XuLOPl3JkU4uhH6G06Nny4n4dIfcYtItzgz5UPZA89FdAXp3ZAYCtZAck9GmCfACIZAN2Dqqhl2eOJM9VgzVY13XhpMH8c1hafs9gbP1aKouUZC0EekUAPITSWA4IZAaAWuTsLZAZCNM7zSZAQsONPZBsZA5KyREyr4Svrsgg2ivpjvHOdwFZBZCjcAZDZD'
+        token = 'EAACEdEose0cBAJjtu1EPr1j8ZC17g0ZBAKIxPLAZA3EyYMElylmD3ZBz9dzU1KabMtaeE0c2t1cieNvBVUYK5WfqDgG4XBSXnNbjbR5EvDvt3I6wA7l33ZCX2WCbZASBn94A197ZCJ6shW3b7ICV4ZAlX7v5WHYNeGGcQ2bZBAa3o9BkE1HeFvyvzxF6DB2eYQa3u0yOzJKeEzAZDZD'
         data = {
             'recipient': {'id': sender},
             'message': {'text': 'You just msg me "{}"\nHello there~'.format(send_msg)}
         }
-        res = requests.post('https://graph.facebook.com/v3.0/2119773578253322/messages?access_token={}'.format(token), json=data)
+        res = requests.post('https://graph.facebook.com/v3.0/me/messages?access_token={}'.format(token), json=data)
         print(res.content)
