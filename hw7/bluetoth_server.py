@@ -14,6 +14,7 @@ def server():
     try:
         while True:
             data = conn_socket.recv(1024)
+            data = str(data, 'utf-8')
             print(data)
             if data == 'turn on':
                 print('receive {}'.format(data))
