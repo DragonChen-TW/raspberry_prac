@@ -3,7 +3,7 @@ import bluetooth as bt
 import LED
 
 def server():
-    gpio.setmode(BCM)
+    gpio.setmode(gpio.BCM)
     LED.setup(21, 'out')
 
     server_socket = bt.BluetoothSocket(RFCOMM)
