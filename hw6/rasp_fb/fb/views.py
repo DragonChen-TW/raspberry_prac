@@ -16,6 +16,10 @@ class index(View):
             return HttpResponse('Hello, world', status=200)
 
     def post(self, request):
+        # fans 2119773578253322
+        # personal 2449993941684764
+        # personal 844603888893940
+
         data = json.loads(str(request.body, 'utf-8'))
         print(json.dumps(data))
         for entry in data['entry']:
@@ -24,7 +28,7 @@ class index(View):
                     sender = msg['sender']['id']
                     msg = msg['message']['text']
                     print(sender, msg)
-                    self.reply(sender, msg)
+                    self.reply("844603888893940", msg)
         return HttpResponse('okay', status=200)
 
     def reply(self, sender, send_msg):
@@ -33,5 +37,5 @@ class index(View):
             'recipient': {'id': sender},
             'message': {'text': 'You just msg me "{}"\nHello there~'.format(send_msg)}
         }
-        res = requests.post('https://graph.facebook.com/v3.0/me/messages?access_token={}'.format(token), json=data)
+        res = requests.post('https://graph.facebook.com/v3.0/2119773578253322/messages?access_token={}'.format(token), json=data)
         print(res.content)
