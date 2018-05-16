@@ -15,8 +15,9 @@ def display():
 
     # for line in data:
     #     print([int(b) for b in line])
-    b_data = [[int(b) for b in line] for line in data] * 3
-    print(b_data)
+    # b_data = [[int(b) for b in line] for line in data] * 3
+    b_data = data * 3
+    # print(b_data)
     HC595_one.hc_out(b_data, 0.5)
 
 if __name__ == '__main__':
