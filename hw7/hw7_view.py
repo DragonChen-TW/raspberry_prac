@@ -21,7 +21,8 @@ def mqttSend():
     view.publish('request', 'request')
 def mqttLoop():
     global view
-    view.loop_forever()
+    time.sleep(20)
+    view.loop_stop()
 
 def listen():
     global view
