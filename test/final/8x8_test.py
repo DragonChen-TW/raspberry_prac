@@ -42,23 +42,8 @@ if __name__ == '__main__':
         icon = [temp1 * 4, temp2 * 4] * 4
 
         print(icon)
-
-        # for i in range(4):
-        #     gpio.output(row_led[i], gpio.HIGH)
-        # for _ in range(500):
-        #     for i in range(8):
-        #         # if i < 4:
-        #         #     gpio.output(row_led[i], gpio.HIGH)
-        #         gpio.output(col_led[i], gpio.LOW)
-        #         time.sleep(0.001)
-        #         gpio.output(col_led[i], gpio.HIGH)
-
+        
         show8x8(icon, 5)
-
-        # for i in col_led[0:5]:
-        #     gpio.output(i, gpio.LOW)
-        # for i in row_led[0:3]:
-        #     gpio.output(i, gpio.HIGH)
 
         time.sleep(10)
     finally:

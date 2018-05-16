@@ -24,9 +24,9 @@ def shift(shift_data):
 
 def hc_out(data):
     for each in data:
-        makeTick(SHCP)
+        gpio.output(STCP, gpio.LOW)
         shift(each)
-        makeTick(STCP)
+        gpio.output(STCP, gpio.HIGH)
         time.sleep(5)
 
 if __name__ =="__main__":
