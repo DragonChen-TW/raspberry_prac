@@ -19,7 +19,6 @@ def makeTick(gpio_num):
 
 def shift(shift_data):
     for i in shift_data:
-        print(i)
         gpio.output(DS, i)
         makeTick(SHCP)
 
@@ -33,7 +32,7 @@ def hc_out(data):
 if __name__ =="__main__":
     try:
         setup()
-        hc_out([1, 1, 1, 1, 0, 0, 0, 0], [1, 0, 1, 0, 1, 0, 1, 0])
+        hc_out([[1, 1, 1, 1, 0, 0, 0, 0], [1, 0, 1, 0, 1, 0, 1, 0]])
     finally:
         makeTick(STCP)
         gpio.cleanup()
