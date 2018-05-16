@@ -1,4 +1,4 @@
-import paho.mqtt.db as mqtt
+import paho.mqtt.client as mqtt
 
 def onConnect(db, data, flags, rc):
     print('Connected with result code {}'.format(rc))

@@ -1,4 +1,4 @@
-import paho.mqtt.view as mqtt
+import paho.mqtt.client as mqtt
 import PIR, time
 import RPi.GPIO as gpio
 
