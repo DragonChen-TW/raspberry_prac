@@ -27,7 +27,7 @@ def hc_out(data):
         gpio.output(STCP, gpio.LOW)
         shift(each)
         gpio.output(STCP, gpio.HIGH)
-        time.sleep(5)
+        time.sleep(1)
 
     # clean
     for i in range(8):
