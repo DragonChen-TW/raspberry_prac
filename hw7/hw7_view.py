@@ -10,7 +10,6 @@ def onMessage(view, data, msg):
     # uni_str = str(msg.payload, 'utf-8')
     global send_msg
     send_msg = msg.payload
-    view.disconnect()
 
 def mqttSetup():
     global view
@@ -23,10 +22,6 @@ def mqttSetup():
 def mqttSend():
     global view
     view.publish('request', 'request')
-def mqttLoop():
-    global view
-    time.sleep(10)
-    view.loop_stop()
 
 def listen():
     global view
@@ -35,7 +30,8 @@ def listen():
         time.sleep(1)
     print('PIR detected!')
 
-def server(msg):
+def server():
+    global send_msg
     bind_ip = '192.168.1.18'
     bind_port = 8888
 
@@ -49,7 +45,7 @@ def server(msg):
         conn_socket, addr = server_socket.accept()
         print('Accept connection from {}'.format((addr[0], addr[1])))
 
-        server_socket.send(msg)
+        server_socket.send(send_msg)
     finally:
         server_socket.close()
         conn_socket.close()
@@ -61,6 +57,6 @@ if __name__ == '__main__':
         mqttSend()
         mqttLoop()
 
-        server(msg.payload)
+        server()
     finally:
         PIR.clean()
