@@ -14,6 +14,8 @@ def mqttSetup():
     view.on_connect = onConnect
     view.on_message = onMessage
     view.connect('localhost', 1883, 60)
+    # force to start connect
+    view.loop_start()
 def mqttSend():
     global view
     view.publish('request', 'request')
