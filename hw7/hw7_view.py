@@ -9,7 +9,7 @@ def onMessage(view, data, msg):
     print(msg.topic, msg.payload)
     # uni_str = str(msg.payload, 'utf-8')
     global send_msg
-    send_msg = msg.payload
+    send_msg = str(msg.payload, 'utf-8')
 
 def mqttSetup():
     global view
