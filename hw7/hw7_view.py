@@ -50,6 +50,8 @@ def server():
         while True:
             time.sleep(1)
             conn_socket.send(send_msg)
+    except Exception as e:
+        print(e)
     finally:
         server_socket.close()
         conn_socket.close()
