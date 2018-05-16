@@ -19,7 +19,7 @@ def makeTick(gpio_num):
 
 def shift(shift_data):
     for i in shift_data:
-        gpio.output(DS, (i - '0'))
+        gpio.output(DS, int(i))
         makeTick(SHCP)
 
 def hc_out(data, delay=1):
@@ -38,6 +38,6 @@ def hc_out(data, delay=1):
 if __name__ =="__main__":
     try:
         setup()
-        hc_out([[1, 1, 1, 1, 0, 0, 0, 0], [1, 0, 1, 0, 1, 0, 1, 0]])
+        hc_out(['11110000', '10101010'])
     finally:
         gpio.cleanup()
