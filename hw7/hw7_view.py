@@ -8,7 +8,7 @@ def onConnect(view, data, flags, rc):
 def onMessage(view, data, msg):
     print(msg.topic, msg.payload)
     # uni_str = str(msg.payload, 'utf-8')
-    server(msg)
+    server(msg.payload)
 
 def mqttSetup():
     global view
