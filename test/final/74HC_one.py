@@ -28,5 +28,6 @@ if __name__ =="__main__":
     try:
         setup()
         hc_out([1, 1, 1, 1, 0, 0, 0, 0])
+        time.sleep(5)
     finally:
         gpio.cleanup()
