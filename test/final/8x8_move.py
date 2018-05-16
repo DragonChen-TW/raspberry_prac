@@ -1,4 +1,5 @@
 import HC595_one
+import RPi.GPIO as gpio
 
 def display():
     data = [
