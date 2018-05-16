@@ -49,6 +49,7 @@ def server():
 
         while True:
             time.sleep(1)
+            conn_socket.send(send_msg)
     finally:
         server_socket.close()
         conn_socket.close()
