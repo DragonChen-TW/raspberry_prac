@@ -19,7 +19,8 @@ def makeTick(gpio_num):
 
 def shift(shift_data):
     for i in shift_data:
-        gpio.output(SHCP, i)
+        print(i)
+        gpio.output(DS, i)
         makeTick(SHCP)
 
 def hc_out(data):
