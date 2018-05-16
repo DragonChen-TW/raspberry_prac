@@ -48,9 +48,9 @@ def server():
         print(send_msg)
         conn_socket.send(send_msg)
 
-        while True:
-            time.sleep(1)
-            conn_socket.send(send_msg)
+        # while True:
+        #     time.sleep(1)
+        #     conn_socket.send(send_msg)
     except Exception as e:
         print(e)
     finally:
