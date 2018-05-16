@@ -20,6 +20,7 @@ def client():
 if __name__ == '__main__':
     try:
         LED.setup(21, 'out')
+        LED.turnON(21)
         client()
     finally:
         LED.clean()
