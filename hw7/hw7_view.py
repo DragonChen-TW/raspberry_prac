@@ -8,7 +8,8 @@ def onConnect(view, data, flags, rc):
 def onMessage(view, data, msg):
     print(msg.topic, msg.payload)
     # uni_str = str(msg.payload, 'utf-8')
-    global send_msg = msg.payload
+    global send_msg
+    send_msg = msg.payload
     view.disconnect()
 
 def mqttSetup():
