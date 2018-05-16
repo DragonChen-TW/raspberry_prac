@@ -1,5 +1,7 @@
 import RPi.GPIO as gpio
 
+gpio.setmode(gpio.BCM)
+
 def setup(gpio_num, ctr):
     if ctr == 'in':
         gpio.setup(gpio_num, gpio.IN)
