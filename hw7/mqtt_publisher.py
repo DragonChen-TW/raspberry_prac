@@ -4,7 +4,7 @@ import RPi.GPIO as gpio
 
 def server():
     mqtt_server = mqtt.Client('python_pub')
-    mqtt_server.connect('localhost', 1340)
+    mqtt_server.connect('localhost', 1883)
 
     while True:
         PR_status = gpio.input(14)
