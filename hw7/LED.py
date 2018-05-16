@@ -7,6 +7,8 @@ def setup(gpio_num, ctr):
         gpio.setup(gpio_num, gpio.IN)
     elif ctr == 'out':
         gpio.setup(gpio_num, gpio.OUT)
+def clean():
+    gpio.cleanup()
 
 def turnON(gpio_num):
     gpio.output(gpio_num, gpio.HIGH)

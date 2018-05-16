@@ -1,11 +1,8 @@
 import paho.mqtt.client as mqtt
-import PhotoResistorDigitalSignal as PR
+import PIR
 import RPi.GPIO as gpio
 
-
 def server():
-    PR.SetupPhotoresistor(14)
-
     mqtt_server = mqtt.Client('python_pub')
     mqtt_server.connet('localhost', 1340)
 
@@ -15,4 +12,8 @@ def server():
             mqtt_server.publish("LED", 'turn on')
 
 if __name__ == '__main__':
-    server()
+    try:
+        PR.setup(14)
+        server()
+    except:
+        PIR.clean()

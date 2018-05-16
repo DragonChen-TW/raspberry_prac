@@ -18,5 +18,8 @@ def client():
     client.loop_forever()
 
 if __name__ == '__main__':
-    LED.setup(21, 'out')
-    client()
+    try:
+        LED.setup(21, 'out')
+        client()
+    except:
+        LED.clean()
