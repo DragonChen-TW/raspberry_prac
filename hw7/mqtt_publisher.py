@@ -13,7 +13,7 @@ def server():
 
 if __name__ == '__main__':
     try:
-        PR.setup(14)
+        PIR.setup(14)
         server()
     finally:
         PIR.clean()
