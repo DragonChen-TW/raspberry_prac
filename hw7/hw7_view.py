@@ -8,7 +8,8 @@ def onConnect(view, data, flags, rc):
 def onMessage(view, data, msg):
     print(msg.topic, msg.payload)
     # uni_str = str(msg.payload, 'utf-8')
-    server(msg.payload)
+    global send_msg = msg.payload
+    view.disconnect()
 
 def mqttSetup():
     global view
@@ -23,7 +24,7 @@ def mqttSend():
     view.publish('request', 'request')
 def mqttLoop():
     global view
-    time.sleep(20)
+    time.sleep(10)
     view.loop_stop()
 
 def listen():
@@ -58,5 +59,7 @@ if __name__ == '__main__':
         listen()
         mqttSend()
         mqttLoop()
+
+        server(msg.payload)
     finally:
         PIR.clean()
