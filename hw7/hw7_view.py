@@ -45,7 +45,7 @@ def server():
         conn_socket, addr = server_socket.accept()
         print('Accept connection from {}'.format((addr[0], addr[1])))
 
-        server_socket.send(send_msg)
+        conn_socket.send(send_msg)
     finally:
         server_socket.close()
         conn_socket.close()
