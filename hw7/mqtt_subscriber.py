@@ -9,6 +9,8 @@ def on_message(client, data, msg):
     print(msg.topic, msg.payload)
     if msg.payload == b'turn on':
         LED.turnON(21)
+    else:
+        LED.turnOFF(21)
 
 def client():
     client = mqtt.Client()
@@ -20,7 +22,6 @@ def client():
 if __name__ == '__main__':
     try:
         LED.setup(21, 'out')
-        LED.turnON(21)
         client()
     finally:
         LED.clean()
