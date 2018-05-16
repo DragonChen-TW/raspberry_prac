@@ -16,7 +16,7 @@ def mqttSetup():
     view = mqtt.Client()
     view.on_connect = onConnect
     view.on_message = onMessage
-    view.connect('localhost', 1883, 60)
+    view.connect('192.168.1.30', 1883, 60)
     # force to start connect
     view.loop_start()
 def mqttSend():

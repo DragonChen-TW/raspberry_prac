@@ -13,7 +13,7 @@ def mqttSetup():
     db = mqtt.Client()
     db.on_connect = onConnect
     db.on_message = onMessage
-    db.connect('localhost', 1883, 60)
+    db.connect('192.168.1.30', 1883, 60)
 def mqttLoop():
     global db
     db.loop_forever()
