@@ -21,9 +21,9 @@ def server():
         while True:
             data = conn_socket.recv(1024)
             data = str(data, 'utf-8')
-            if data == 'turn on':
+            if 'turn on' in data:
                 LED.turnON(21)
-            elif data == 'turn off':
+            elif 'turn off' in data:
                 LED.turnOFF(21)
             print(data)
 
