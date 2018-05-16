@@ -22,12 +22,12 @@ def shift(shift_data):
         gpio.output(DS, i)
         makeTick(SHCP)
 
-def hc_out(data):
+def hc_out(data, delay=1):
     for each in data:
         gpio.output(STCP, gpio.LOW)
         shift(each)
         gpio.output(STCP, gpio.HIGH)
-        time.sleep(1)
+        time.sleep(delay)
 
     # clean
     for i in range(8):
