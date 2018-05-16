@@ -9,7 +9,9 @@ def setup():
     STCP = 22
 
     gpio.setmode(gpio.BCM)
-    gpio.setup(16, gpio.OUT)
+    gpio.setup(DS, gpio.OUT)
+    gpio.setup(SHCP, gpio.OUT)
+    gpio.setup(STCP, gpio.OUT)
 
 def makeTick(gpio_num):
     gpio.output(gpio_num, gpio.HIGH)
