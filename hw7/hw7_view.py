@@ -55,7 +55,6 @@ if __name__ == '__main__':
         mqttSetup()
         listen()
         mqttSend()
-        mqttLoop()
 
         server()
     finally:
