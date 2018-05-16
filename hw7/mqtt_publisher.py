@@ -15,5 +15,5 @@ if __name__ == '__main__':
     try:
         PR.setup(14)
         server()
-    except:
+    finally:
         PIR.clean()

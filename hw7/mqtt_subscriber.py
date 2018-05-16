@@ -21,5 +21,5 @@ if __name__ == '__main__':
     try:
         LED.setup(21, 'out')
         client()
-    except:
+    finally:
         LED.clean()
