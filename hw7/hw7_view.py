@@ -7,7 +7,7 @@ def onConnect(view, data, flags, rc):
     view.subscribe('goods')
 def onMessage(view, data, msg):
     print(msg.topic, msg.payload)
-    uni_str = msg.encode()
+    uni_str = msg.payload.encode()
     server(uni_str)
 
 def mqttSetup():
