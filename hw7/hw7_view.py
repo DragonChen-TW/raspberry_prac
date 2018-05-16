@@ -45,6 +45,7 @@ def server():
         conn_socket, addr = server_socket.accept()
         print('Accept connection from {}'.format((addr[0], addr[1])))
 
+        print(send_msg)
         conn_socket.send(send_msg)
 
         while True:
