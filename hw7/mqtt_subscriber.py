@@ -9,7 +9,7 @@ def on_message(client, data, msg):
     print(msg.topic, msg.payload)
     if msg.payload == b'turn on':
         LED.turnON(21)
-    else:
+        time.sleep(0.5)
         LED.turnOFF(21)
 
 def client():
