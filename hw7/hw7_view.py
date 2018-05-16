@@ -1,5 +1,5 @@
 import paho.mqtt.client as mqtt
-import PIR, time
+import PIR, time, socket
 import RPi.GPIO as gpio
 
 def onConnect(view, data, flags, rc):
@@ -7,6 +7,8 @@ def onConnect(view, data, flags, rc):
     view.subscribe('goods')
 def onMessage(view, data, msg):
     print(msg.topic, msg.payload)
+    uni_str = str(msg, 'utf-8')
+    server(uni_str)
 
 def mqttSetup():
     global view
@@ -30,6 +32,25 @@ def listen():
     while not gpio.input(14):
         time.sleep(1)
     print('PIR detected!')
+
+def server(msg):
+    bind_ip = '192.168.1.18'
+    bind_port = 8888
+
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    server_socket.bind((bind_ip, bind_port))
+    server_socket.listen(5)
+
+    try:
+        print('Listening on {}'.format((bind_ip, bind_port)))
+        conn_socket, addr = server_socket.accept()
+        print('Accept connection from {}'.format((addr[0], addr[1])))
+
+        server_socket.send(msg)
+    finally:
+        server_socket.close()
+        conn_socket.close()
 
 if __name__ == '__main__':
     try:
