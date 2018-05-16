@@ -29,6 +29,12 @@ def hc_out(data):
         gpio.output(STCP, gpio.HIGH)
         time.sleep(5)
 
+    # clean
+    for i in range(8):
+        gpio.output(DS, gpio.LOW)
+        makeTick(SHCP)
+    makeTick(STCP)
+
 if __name__ =="__main__":
     try:
         setup()
