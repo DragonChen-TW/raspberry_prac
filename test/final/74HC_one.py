@@ -3,6 +3,7 @@ import time
 
 def setup():
     # global variables
+    global DS, SHCP, STCP
     DS = 17
     SHCP = 27
     STCP = 22
