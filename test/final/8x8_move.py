@@ -19,5 +19,8 @@ def display():
     HC595_one.hc_out(b_data, 0.5)
 
 if __name__ == '__main__':
-    HC595_one.setup()
-    display()
+    try:
+        HC595_one.setup()
+        display()
+    finally:
+        gpio.cleanup()
