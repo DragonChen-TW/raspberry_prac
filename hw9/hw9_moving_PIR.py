@@ -16,7 +16,7 @@ def detect(gpio_num):
         print('PIR detected !')
         gpio.output(21, gpio.HIGH)
 
-        time.sleep(3)
+        time.sleep(2)
         status = False
         gpio.output(21, gpio.LOW)
 
