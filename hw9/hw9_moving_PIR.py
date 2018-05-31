@@ -19,8 +19,6 @@ def detect(gpio_num):
         time.sleep(3)
         status = False
         gpio.output(21, gpio.LOW)
-    else:
-        status = False
 
 
 if __name__ == '__main__':
