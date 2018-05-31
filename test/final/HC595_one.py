@@ -40,7 +40,7 @@ if __name__ =="__main__":
     try:
         setup()
         # hc_out(['11110000', '10101010'])
-        data = ['11111110'] * 4
+        data = ['11111110'] * 6
 
         for i in range(1000):
             hc_out(data)
