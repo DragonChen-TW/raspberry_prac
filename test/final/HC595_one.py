@@ -41,9 +41,9 @@ if __name__ =="__main__":
     try:
         setup()
         # hc_out(['11110000', '10101010'])
-        for t in range(8, 1, -1):
+        for t in range(8, 0, -1):
             print(t)
-            data = ['010'] * t
+            data = ['0110'] * t
 
             for i in range(100):
                 hc_out(data)
