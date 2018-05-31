@@ -3,13 +3,13 @@ import time
 
 def setup():
     global pwm
-    pwm = gpio.PWM(3, 50)
+    pwm = gpio.PWM(3, 20)
     pwm.start(0)
     gpio.output(3, gpio.HIGH)
 
 def setAngle(angle):
     global pwm
-    duty_cycle = 1/20 * angle + 3
+    duty_cycle = 1/50 * angle + 3
     pwm.ChangeDutyCycle(duty_cycle)
     time.sleep(0.05)
     # pwm.ChangeDutyCycle(0)
