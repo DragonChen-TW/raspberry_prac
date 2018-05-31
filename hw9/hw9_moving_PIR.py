@@ -5,7 +5,7 @@ def setup():
     gpio.setmode(gpio.BCM)
     gpio.setup(3, gpio.OUT) # servo's gpio
     gpio.setup(21, gpio.OUT) # LED's gpio
-    gpio.setup(4, gpio.IN) # PIR's gpio
+    gpio.setup(4, gpio.IN, pull_up_down=gpio.PUD_DOWN) # PIR's gpio
 
     servo.setup()
 
