@@ -22,7 +22,7 @@ if __name__ == '__main__':
     try:
         setup()
 
-        gpio.add_event_detect(detect, gpio.RISING, callback=motion, bouncetime=300)
+        gpio.add_event_detect(4, gpio.RISING, callback=detect, bouncetime=300)
 
         while True:
             servo.setAngle(0)
