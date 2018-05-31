@@ -11,7 +11,7 @@ def setup():
 
 def detect(gpio_num):
     global status
-    if gpio.input(gpio_num):
+    if gpio.input(gpio_num) and not status:
         status = True
         print('PIR detected !')
         gpio.output(21, gpio.HIGH)
