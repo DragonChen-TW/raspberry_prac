@@ -1,5 +1,5 @@
 import RPi.GPIO as gpio
-import servo
+import servo, time
 
 def setup():
     gpio.setmode(gpio.BCM)
