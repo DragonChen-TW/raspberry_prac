@@ -4,6 +4,7 @@ import time
 def setup():
     # global variables
     global DS, SHCP, STCP
+    # global CLK, MOSI, CE
     DS = 17
     SHCP = 27
     STCP = 22
@@ -38,6 +39,8 @@ def hc_out(data, delay=1):
 if __name__ =="__main__":
     try:
         setup()
-        hc_out(['11110000', '10101010'])
+        # hc_out(['11110000', '10101010'])
+        data = ['11110000'] * 4 + ['00001111'] * 4
+        hc_out(data)
     finally:
         gpio.cleanup()
