@@ -28,6 +28,7 @@ if __name__ == '__main__':
 
         while True:
             for i in range(-180, 180, 10):
+                print(abs(i))
                 servo.setAngle(abs(i))
                 while status:
                     time.sleep(0.1)
