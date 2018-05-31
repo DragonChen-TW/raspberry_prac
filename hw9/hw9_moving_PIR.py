@@ -26,8 +26,8 @@ if __name__ == '__main__':
         gpio.add_event_detect(14, gpio.RISING, callback=detect, bouncetime=300)
 
         while True:
-            for i in range(0, 180, 10) + range(180, 0, -10):
-                servo.setAngle(i)
+            for i in range(-180, 180, 10):
+                servo.setAngle(abs(i))
                 while status:
                     time.sleep(0.1)
     finally:
