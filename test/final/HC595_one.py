@@ -32,7 +32,8 @@ def hc_out(data, delay=1):
 
     # clean
     for i in range(8):
-        gpio.output(DS, gpio.LOW)
+        for j in range(8);
+            gpio.output(DS, gpio.LOW)
         makeTick(SHCP)
     makeTick(STCP)
 
