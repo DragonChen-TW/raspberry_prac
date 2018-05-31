@@ -43,7 +43,7 @@ if __name__ =="__main__":
         # hc_out(['11110000', '10101010'])
         for t in range(8, 0, -1):
             print(t)
-            data = ['010110'] * t
+            data = ['010','110'] * t
 
             for i in range(100):
                 hc_out(data)
