@@ -13,6 +13,7 @@ def detect(gpio_num):
     global status
     if gpio.input(gpio_num):
         print('PIR detected !')
+        gpio.output(21, gpio.OUT)
         status = True
     else:
         status = False
@@ -25,7 +26,9 @@ if __name__ == '__main__':
         gpio.add_event_detect(14, gpio.RISING, callback=detect, bouncetime=300)
 
         while True:
-            servo.setAngle(0)
-            servo.setAngle(180)
+            while i in range(0, 180, 10):
+                servo.setAngle(i)
+                while status:
+                    time.sleep(0.1)
     finally:
         servo.cleanup()
