@@ -31,10 +31,10 @@ def hc_out(data, delay=1):
         # time.sleep(delay)
 
     # clean
-    # for i in range(8):
-    #     gpio.output(DS, gpio.LOW)
-    #     makeTick(SHCP)
-    # makeTick(STCP)
+    for i in range(8):
+        gpio.output(DS, gpio.LOW)
+        makeTick(SHCP)
+    makeTick(STCP)
 
 if __name__ =="__main__":
     try:
