@@ -11,7 +11,7 @@ def setAngle(angle):
     global pwm
     duty_cycle = 1/20 * angle + 3
     pwm.ChangeDutyCycle(duty_cycle)
-    time.sleep(0.2)
+    time.sleep(0.1)
     # pwm.ChangeDutyCycle(0)
 
 def cleanup():
