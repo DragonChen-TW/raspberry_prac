@@ -5,7 +5,7 @@ def setup():
     gpio.setmode(gpio.BCM)
     gpio.setup(3, gpio.OUT) # servo's gpio
     gpio.setup(21, gpio.OUT) # LED's gpio
-    gpio.setup(4, gpio.IN, pull_up_down=gpio.PUD_DOWN) # PIR's gpio
+    gpio.setup(14, gpio.IN, pull_up_down=gpio.PUD_DOWN) # PIR's gpio
 
     servo.setup()
 
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     try:
         setup()
 
-        gpio.add_event_detect(4, gpio.RISING, callback=detect, bouncetime=300)
+        gpio.add_event_detect(14, gpio.RISING, callback=detect, bouncetime=300)
 
         while True:
             servo.setAngle(0)
