@@ -11,14 +11,13 @@ def setAngle(angle):
     global pwm
     duty_cycle = 1/20 * angle + 3
     pwm.ChangeDutyCycle(duty_cycle)
-    time.sleep(0.2)
-    pwm.ChangeDutyCycle(0)
+    time.sleep(2)
+    # pwm.ChangeDutyCycle(0)
 
 def cleanup():
     global pwm
     pwm.stop()
     gpio.cleanup()
-
 
 if __name__ == '__main__':
     setup()
