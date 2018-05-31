@@ -22,6 +22,7 @@ def detect(gpio_num):
 if __name__ == '__main__':
     try:
         setup()
+        global = False
 
         gpio.add_event_detect(14, gpio.RISING, callback=detect, bouncetime=300)
 
