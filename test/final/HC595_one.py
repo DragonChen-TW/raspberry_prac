@@ -41,14 +41,12 @@ if __name__ =="__main__":
     try:
         setup()
         # hc_out(['11110000', '10101010'])
-        for t in range(8, 0, -1):
-            print(t)
-            data = ['100'] * t
+        data = ['1100'] * 8
 
-            for i in range(100):
-                hc_out(data)
-                time.sleep(0.01)
-                if i % 10 == 0:
-                    time.sleep(0.2)
+        for i in range(100):
+            hc_out(data)
+            time.sleep(0.01)
+            if i % 10 == 0:
+                time.sleep(0.2)
     finally:
         gpio.cleanup()
