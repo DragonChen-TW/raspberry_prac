@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
         while True:
             v = get_velocity()
-            print('Measured Velocity = %.2lf cm'.format(v))
+            print('Measured Velocity = {%.2lf} cm'.format(v))
 
             if v >= 30:
                 music.play()
