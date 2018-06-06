@@ -3,7 +3,7 @@ import Adafruit_DHT
 import time
 
 def setup():
-    global gpio_tri, gpio_temp, gpio_temp, sensor
+    global gpio_tri, gpio_echo, gpio_temp, sensor
     gpio.setmode(gpio.BCM)
     gpio_tri = 7
     gpio_echo = 12
@@ -26,6 +26,7 @@ def get_speed():
     return speed
 
 def get_distance(speed):
+    global gpio_echo
     send_trigger()
 
     while gpio.input(gpio_echo) == 0:
