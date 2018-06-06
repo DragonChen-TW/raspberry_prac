@@ -10,7 +10,7 @@ def setup():
     gpio_temp = 4
 
     gpio.setup(gpio_tri, gpio.OUT)
-    gpio.setup(gpio_echo, gpio.OUT)
+    gpio.setup(gpio_echo, gpio.IN)
     sensor = Adafruit_DHT.DHT11
 
 def send_trigger():
