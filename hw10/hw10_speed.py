@@ -30,10 +30,15 @@ def get_distance(speed):
     global gpio_echo
     send_trigger()
 
+    print('start')
+
     while gpio.input(gpio_echo) == 0:
         start_t = time.time()
+    print('mid')
     while gpio.input(gpio_echo) == 1:
         stop_t = time.time()
+
+    print('end')
 
     time_elapsed = stop_t - start_t
     distance = (time_elapsed * speed) / 2
