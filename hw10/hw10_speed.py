@@ -2,6 +2,9 @@ import RPi.GPIO as gpio
 import Adafruit_DHT
 import time
 
+from pygame.mixer import init
+from pygame.mixer import music
+
 def setup():
     global gpio_tri, gpio_echo, gpio_temp, sensor
     gpio.setmode(gpio.BCM)
@@ -13,6 +16,9 @@ def setup():
     gpio.setup(gpio_echo, gpio.IN)
     sensor = Adafruit_DHT.DHT11
 
+    init() # pygame init for sound
+    music.load('mp3/police_car.mp3')
+
 def send_trigger():
     global gpio_tri
     gpio.output(gpio_tri, gpio.HIGH)
@@ -22,40 +28,64 @@ def send_trigger():
 def get_speed():
     global sensor
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio_temp)
-    print('>>', humidity, temperature)
     speed = 33100 + 26 * 60
     return speed
 
-def get_distance(speed):
+def get_distance():
     global gpio_echo
     send_trigger()
 
-    print('start')
-
     while gpio.input(gpio_echo) == 0:
         start_t = time.time()
-    print('mid')
     while gpio.input(gpio_echo) == 1:
         stop_t = time.time()
 
-    print('end')
-
     time_elapsed = stop_t - start_t
+    speed = get_speed()
     distance = (time_elapsed * speed) / 2
 
-    print(distance)
-
     return distance
+
+def get_velocity():
+    global gpio_echo, pre_dist, pre_time
+    send_trigger()
+
+    while gpio.input(gpio_echo) == 0:
+        start_t = time.time()
+    while gpio.input(gpio_echo) == 1:
+        stop_t = time.time()
+
+    time_elapsed = stop_t - start_t
+    speed = get_speed()
+    distance = (time_elapsed * speed) / 2
+
+    if distance < 2 or distance > 400:
+        dist_err = True
+    else:
+        dist_err = False
+
+    velocity = (distance - pre_dist) / (stop_t - pre_time)
+    pre_dist = distance
+    pre_time = stop_t
+
+    return abs(velocity)
 
 if __name__ == '__main__':
     try:
         setup()
 
         while True:
-            speed = get_speed()
-            dist = get_distance(speed)
-            print('output:')
-            print('Measured Distance = %.lf cm'.format(dist))
+            v = get_velocity()
+            print('Measured Velocity = %.2lf cm'.format(v))
+
+            if v >= 30:
+                music.play()
+                for i in range(3):
+                    gpio.output(13, gpio.HIGH)
+                    time.sleep(0.5)
+                    gpio.output(13, gpio.LOW)
+                    time.sleep(0.5)
+                music.stop()
             time.sleep(1)
     finally:
         gpio.cleanup()
