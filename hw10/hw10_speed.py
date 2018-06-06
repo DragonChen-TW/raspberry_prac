@@ -47,7 +47,7 @@ def get_distance():
     return distance
 
 def get_velocity():
-    global gpio_echo, pre_dist, pre_time
+    global gpio_echo
     send_trigger()
 
     while gpio.input(gpio_echo) == 0:
@@ -63,6 +63,8 @@ def get_velocity():
         dist_err = True
     else:
         dist_err = False
+
+    global pre_dist, pre_time
 
     velocity = (distance - pre_dist) / (stop_t - pre_time)
     pre_dist = distance
