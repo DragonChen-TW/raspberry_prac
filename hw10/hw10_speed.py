@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
         while True:
             speed = get_speed()
-            dist = distance(speed)
+            dist = get_distance(speed)
             print('Measured Distance = %.lf cm'.format(dist))
             time.sleep(1)
     finally:
