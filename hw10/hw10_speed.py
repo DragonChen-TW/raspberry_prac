@@ -3,7 +3,7 @@ import Adafruit_DHT
 import time
 
 def setup():
-    global gpio_tri, gpio_temp, gpio_temp
+    global gpio_tri, gpio_temp, gpio_temp, sensor
     gpio.setmode(gpio.BCM)
     gpio_tri = 7
     gpio_echo = 12
@@ -20,6 +20,7 @@ def send_trigger():
     gpio.output(gpio_tri, gpio.LOW)
 
 def get_speed():
+    global sensor
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio_temp)
     speed = 33100 + 26 * 60
     return speed
