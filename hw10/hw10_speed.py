@@ -76,6 +76,7 @@ if __name__ == '__main__':
     try:
         setup()
         pre_dist = 30
+        pre_time = 0
 
         while True:
             v = get_velocity()
