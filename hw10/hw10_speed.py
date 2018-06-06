@@ -22,6 +22,7 @@ def send_trigger():
 def get_speed():
     global sensor
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio_temp)
+    print('>>', humidity, temperature)
     speed = 33100 + 26 * 60
     return speed
 
@@ -37,6 +38,8 @@ def get_distance(speed):
     time_elapsed = stop_t - start_t
     distance = (time_elapsed * speed) / 2
 
+    print(distance)
+
     return distance
 
 if __name__ == '__main__':
@@ -46,6 +49,7 @@ if __name__ == '__main__':
         while True:
             speed = get_speed()
             dist = get_distance(speed)
+            print('output:')
             print('Measured Distance = %.lf cm'.format(dist))
             time.sleep(1)
     finally:
