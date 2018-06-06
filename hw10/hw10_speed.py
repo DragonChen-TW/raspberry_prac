@@ -5,13 +5,13 @@ import time
 def setup():
     global gpio_tri, gpio_temp, gpio_temp
     gpio.setmode(gpio.BCM)
-    gpio_tri = 21
-    gpio_echo = 20
+    gpio_tri = 7
+    gpio_echo = 12
     gpio_temp = 4
 
     gpio.setup(gpio_tri, gpio.OUT)
     gpio.setup(gpio_echo, gpio.OUT)
-    # sensor = Adafruit_DHT.DHT11
+    sensor = Adafruit_DHT.DHT11
 
 def send_trigger():
     global gpio_tri
@@ -20,7 +20,7 @@ def send_trigger():
     gpio.output(gpio_tri, gpio.LOW)
 
 def get_speed():
-    # humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio_temp)
+    humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio_temp)
     speed = 33100 + 26 * 60
     return speed
 
