@@ -25,7 +25,7 @@ def get_speed():
     speed = 33100 + 26 * 60
     return speed
 
-def get_distance():
+def get_distance(speed):
     send_trigger()
 
     while gpio.input(gpio_echo) == 0:
