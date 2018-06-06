@@ -14,6 +14,7 @@ def setup():
 
     gpio.setup(gpio_tri, gpio.OUT)
     gpio.setup(gpio_echo, gpio.IN)
+    gpio.setup(13, gpio.OUT)
     sensor = Adafruit_DHT.DHT11
 
     init() # pygame init for sound
