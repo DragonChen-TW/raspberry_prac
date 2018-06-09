@@ -28,7 +28,7 @@ def hc_out(data, delay=1):
         gpio.output(STCP, gpio.LOW)
         shift(each)
         gpio.output(STCP, gpio.HIGH)
-        # time.sleep(delay)
+        time.sleep(delay)
 
     # clean
     for i in range(8):
@@ -40,13 +40,10 @@ def hc_out(data, delay=1):
 if __name__ =="__main__":
     try:
         setup()
-        # hc_out(['11110000', '10101010'])
-        data = ['100'] * 8
 
-        for i in range(100):
-            hc_out(data)
-            time.sleep(0.01)
-            if i % 10 == 0:
-                time.sleep(0.2)
+        data = ['11110000', '10101010', '0000111100001111', '1100110011001100']
+        data *= 3
+
+        hc_out(data)
     finally:
         gpio.cleanup()
