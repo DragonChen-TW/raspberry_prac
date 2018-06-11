@@ -25,9 +25,9 @@ def shift(shift_data):
         gpio.output(SHCP, gpio.HIGH)
         gpio.output(DS, 0)
 
-def hc_out(data, delay=1):
+def hc_out(data, delay=2):
     for each in data:
-        print(data)
+        print(each)
         gpio.output(STCP, gpio.LOW)
         shift(each)
         gpio.output(STCP, gpio.HIGH)
