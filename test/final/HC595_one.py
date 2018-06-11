@@ -27,17 +27,16 @@ def shift(shift_data):
 
 def hc_out(data, delay=2):
     for each in data:
-        print(each)
         gpio.output(STCP, gpio.LOW)
         shift(each)
         gpio.output(STCP, gpio.HIGH)
+        print(each)
         time.sleep(delay)
 
         # clean
         gpio.output(STCP, gpio.LOW)
         shift('0000000000000000')
         gpio.output(STCP, gpio.HIGH)
-        time.sleep(delay)
 
 if __name__ =="__main__":
     try:
