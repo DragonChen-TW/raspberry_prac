@@ -20,8 +20,10 @@ def makeTick(gpio_num):
 
 def shift(shift_data):
     for i in shift_data:
+        gpio.output(SHCP, gpio.LOW)
         gpio.output(DS, int(i))
-        makeTick(SHCP)
+        gpio.output(SHCP, gpio.HIGH)
+        gpio.output(DS, 0)
 
 def hc_out(data, delay=1):
     for each in data:
