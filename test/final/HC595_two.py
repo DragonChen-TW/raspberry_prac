@@ -22,7 +22,7 @@ def print_msg():
 	print 'Please press Ctrl+C to end the program...'
 
 def setup():
-	GPIO.setmode(GPIO.BOARD)    # Number GPIOs by its physical location
+	GPIO.setmode(GPIO.BCM)    # Number GPIOs by its physical location
 	GPIO.setup(SDI, GPIO.OUT)
 	GPIO.setup(RCLK, GPIO.OUT)
 	GPIO.setup(SRCLK, GPIO.OUT)
