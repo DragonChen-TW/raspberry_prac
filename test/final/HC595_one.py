@@ -25,8 +25,6 @@ def shift(shift_data):
         gpio.output(SHCP, gpio.HIGH)
         gpio.output(DS, 0)
 
-    # clean
-
 
 def hc_out(data, delay=2):
     for each in data:
@@ -36,11 +34,15 @@ def hc_out(data, delay=2):
         print(each)
         time.sleep(delay)
 
+        gpio.output(STCP, gpio.LOW)
+        shift('0000000000000000')
+        gpio.output(STCP, gpio.HIGH)
+
 if __name__ =="__main__":
     try:
         setup()
 
-        data = ['0000111100001111', '1100110011001100', '1110000000000111', '0000000000000000']
+        data = ['0000111100001111', '1110000000000111', '0000000000000000']
         data *= 3
 
         hc_out(data)
