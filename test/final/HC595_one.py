@@ -35,14 +35,14 @@ def hc_out(data, delay=2):
         time.sleep(delay)
 
         gpio.output(STCP, gpio.LOW)
-        shift('0000000000000000')
+        shift('00000000')
         gpio.output(STCP, gpio.HIGH)
 
 if __name__ =="__main__":
     try:
         setup()
 
-        data = ['0000111100001111', '1110000000000111', '1111111100000000']
+        data = ['00001111', '11000000', '11111111', '00000000']
         data *= 3
 
         hc_out(data)
