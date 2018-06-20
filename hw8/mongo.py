@@ -24,7 +24,7 @@ def aggregate_data():
     pipeline = [{
         '$sort': SON([("_id", -1)])
     }]
-    pprint(list(db.temp_hum_collection.aggregate(pippipeline)))
+    pprint(list(db.temp_hum_collection.aggregate(pipeline)))
 
 def del_data(id):
     result = collection.delete_one({'_id': ObjectId(id)})
